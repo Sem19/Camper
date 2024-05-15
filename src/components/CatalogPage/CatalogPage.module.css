@@ -1,0 +1,30 @@
+.CatalogPage {
+  display: flex;
+  gap: 28px;
+}
+
+.Filters {
+  max-width: 170px;
+}
+
+.CamppersContainer {
+  max-width: 500px;
+  overflow: hidden;
+  flex-direction: column;
+  display: flex;
+  white-space: nowrap;
+  gap: 22px;
+}
+.Campper {
+  display: flex;
+  gap: 6px;
+}
+.title {
+  display: flex;
+}
+.raiting {
+  display: flex;
+  gap: 6px;
+}
+.description {
+}
