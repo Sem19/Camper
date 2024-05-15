@@ -8,9 +8,8 @@ import FavoritesPage from "./components/FavoritesPage/FavoritesPage";
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
-
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />

@@ -3,16 +3,22 @@ import styles from "./Header.module.css";
 
 const Header = () => {
   return (
-    <nav>
-      <ul>
+    <nav className={styles.Header}>
+      <ul className={styles.NavLinks}>
         <li>
-          <Link to="/">HomePage</Link>
+          <Link to="/" className={styles.NavLink}>
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/catalog">CatalogPage</Link>
+          <Link to="/catalog" className={styles.NavLink}>
+            Catalog
+          </Link>
         </li>
         <li>
-          <Link to="/favorites">FavoritesPage</Link>
+          <Link to="/favorites" className={styles.NavLink}>
+            Favorites
+          </Link>
         </li>
       </ul>
     </nav>
