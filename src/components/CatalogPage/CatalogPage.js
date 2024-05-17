@@ -1,55 +1,94 @@
 import { useGetCampperDataQuery } from "../../services/campper/campper";
 import styles from "./CatalogPage.module.css";
-
+import Spiner from "../Shared/Spiner/spiner";
+import { useState } from "react";
+import Heart from "../Shared/Heart/Heart";
+import Rating from "../../assets/Rating.png";
+import locatin from "../../assets/location.png";
+import { Modal } from "@mui/material";
 const CatalogPage = () => {
   const { data, error, isLoading } = useGetCampperDataQuery();
+  const [visibleCount, setVisibleCount] = useState(4);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prevCount) => prevCount + 4);
+  };
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   console.log(data);
 
   return (
     <div className={styles.CatalogPage}>
-      <div className={styles.Filters}>
-        <div>Location</div>
-        <input />
-        <div>Filters</div>
-        <h3>Vehicle equipment</h3>
-        <hr />
-        <p>Block with tabs</p>
-        <h3>Vehicle type</h3>
-        <hr />
-        <p>Block with tabs</p>
-        <button>Search</button>
-      </div>
-      <div className={styles.CamppersContainer}>
-        {data?.map((el) => {
-          return (
-            <div className={styles.Campper} key={el._id}>
-              <img width={130} height={100} alt="img" src={el.gallery[0]} />
-              <div>
-                <div className={styles.title}>
-                  <div>{el.name}</div>
-                  <div>${el.price}</div>
+      {isLoading ? (
+        <Spiner />
+      ) : (
+        <>
+          {" "}
+          <div className={styles.Filters}>
+            <div>Location</div>
+            <input />
+            <div>Filters</div>
+            <h3>Vehicle equipment</h3>
+            <hr />
+            <p>Block with tabs</p>
+            <h3>Vehicle type</h3>
+            <hr />
+            <p>Block with tabs</p>
+            <button>Search</button>
+          </div>
+          <div className={styles.CamppersContainer}>
+            {data?.slice(0, visibleCount).map((el) => {
+              return (
+                <div className={styles.Campper} key={el._id}>
+                  <img width={290} height={200} alt="img" src={el.gallery[0]} />
+                  <div className={styles.Info}>
+                    <div className={styles.title}>
+                      <div>{el.name}</div>
+                      <div className={styles.PriceBlock}>
+                        <div>${el.price}</div>
+                        <Heart />
+                      </div>
+                    </div>
+                    <div className={styles.raiting}>
+                      <img alt="rating" src={Rating} />
+                      <div>{el.rating} Rewiews</div>
+                      <img alt="location" src={locatin} />
+                      <div>{el.location}</div>
+                    </div>
+                    <p className={styles.description}>{el.description}</p>
+                    <button className={styles.button} onClick={handleOpen}>
+                      shove more
+                    </button>
+                    <Modal
+                      open={open}
+                      onClose={handleClose}
+                      aria-labelledby="modal-modal-title"
+                      aria-describedby="modal-modal-description"
+                    >
+                      <div className={styles.modalContainer}>
+                        <div className={styles.insideModal}>
+                          <h1>modal</h1>
+                          <p>text</p>
+                        </div>
+                      </div>
+                    </Modal>
+                  </div>
                 </div>
-                <div className={styles.raiting}>
-                  <div>{el.rating} Rewiews</div>
-                  <div>{el.location}</div>
-                </div>
-                <p className={styles.description}>{el.description}</p>
-              </div>
+              );
+            })}
+            <div style={{ margin: "0 auto", backgroundColor: "#ffffff" }}>
+              <button onClick={handleLoadMore} className={styles.loadMoreButton}>
+                load more
+              </button>
             </div>
-          );
-        })}
-      </div>
+          </div>
+          {error?.error}
+        </>
+      )}
     </div>
   );
 };
 export default CatalogPage;
-
-// axios
-//   .get("https://66438e9d6c6a656587078fa8.mockapi.io/api/v1/Campper")
-//   .then((response) => {
-//     console.log(response.data);
-//   })
-//   .catch((error) => {
-//     console.error("Error fetching data:", error);
-//   });
