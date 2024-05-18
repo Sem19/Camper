@@ -1,6 +1,23 @@
 import { useState } from "react";
 import styles from "./filter.module.css";
 import Select from "react-select";
+import airConditioner from "../../assets/airConditioner.png";
+import airConditioner2 from "../../assets/airConditioner2.png";
+import transmission from "../../assets/transmission.png";
+import transmission2 from "../../assets/transmission2.png";
+import kitchen from "../../assets/kitchen.png";
+import kitchen2 from "../../assets/kitchen2.png";
+import tv from "../../assets/TV.png";
+import tv2 from "../../assets/TV2.png";
+import shower from "../../assets/shower.png";
+import shower2 from "../../assets/shower2.png";
+import van from "../../assets/van.png";
+import van2 from "../../assets/van2.png";
+import integrate from "../../assets/integrate.png";
+import integrate2 from "../../assets/integrate2.png";
+import alcove from "../../assets/alcove.png";
+import alcove2 from "../../assets/alcove2.png";
+
 const Filter = () => {
   const options = [
     { value: "chocolate", label: "Chocolate" },
@@ -10,38 +27,57 @@ const Filter = () => {
 
   const [highlightedButtons, setHighlightedButtons] = useState([]);
 
+  const images = [
+    {
+      id: 1,
+      images: [airConditioner, airConditioner2],
+      alt: ["air conditioner", "air conditioner2"],
+    },
+    { id: 2, images: [transmission, transmission2], alt: ["transmission", "transmission2"] },
+    { id: 3, images: [kitchen, kitchen2], alt: ["kitchen", "kitchen2"] },
+    { id: 4, images: [tv, tv2], alt: ["tv", "tv2"] },
+    { id: 5, images: [shower, shower2], alt: ["shower", "shower2"] },
+    { id: 6, images: [van, van2], alt: ["van", "van2"] },
+    { id: 7, images: [integrate, integrate2], alt: ["integrate", "integrate2"] },
+    { id: 8, images: [alcove, alcove2], alt: ["alcove", "alcove2"] },
+  ];
+
   const handleButtonClick = (buttonId) => {
-    // Перевіряємо, чи кнопка вже виділена
     const index = highlightedButtons.indexOf(buttonId);
     if (index !== -1) {
-      // Якщо кнопка вже виділена, видаляємо її зі списку виділених
       setHighlightedButtons((prevState) => prevState.filter((id) => id !== buttonId));
     } else {
-      // Якщо кнопка не виділена, додаємо її до списку виділених
       setHighlightedButtons((prevState) => [...prevState, buttonId]);
     }
   };
+
   return (
     <div className={styles.filters}>
-      <div>Location</div>
-      <Select options={options} />
-      <div>Filters</div>
-      <h3>Vehicle equipment</h3>
-      <hr />
-      <div className={{ marginBottom: 24 }}>
+      <div>
+        <div>Location</div>
+        <Select options={options} />
+      </div>
+      <div>
+        <div>Filters</div>
         <div>
+          <h3>Vehicle equipment</h3>
+          <hr />
           <div className={styles.buttonContainer}>
-            {[1, 2, 3, 4, 5].map((buttonId) => (
+            {images.slice(0, 5).map((imageSet) => (
               <button
-                key={buttonId}
+                key={imageSet.id}
                 className={
-                  highlightedButtons.includes(buttonId)
+                  highlightedButtons.includes(imageSet.id)
                     ? `${styles.button} ${styles.highlighted}`
                     : styles.button
                 }
-                onClick={() => handleButtonClick(buttonId)}
+                onClick={() => handleButtonClick(imageSet.id)}
               >
-                Button {buttonId}
+                <div className={styles.inside}>
+                  {imageSet.images.map((src, index) => (
+                    <img key={index} src={src} alt={imageSet.alt[index]} />
+                  ))}
+                </div>
               </button>
             ))}
           </div>
@@ -50,17 +86,21 @@ const Filter = () => {
           <h3>Vehicle type</h3>
           <hr />
           <div className={styles.buttonContainer}>
-            {[6, 7, 8].map((buttonId) => (
+            {images.slice(5, 8).map((imageSet) => (
               <button
-                key={buttonId}
+                key={imageSet.id}
                 className={
-                  highlightedButtons.includes(buttonId)
+                  highlightedButtons.includes(imageSet.id)
                     ? `${styles.button} ${styles.highlighted}`
                     : styles.button
                 }
-                onClick={() => handleButtonClick(buttonId)}
+                onClick={() => handleButtonClick(imageSet.id)}
               >
-                Button {buttonId}
+                <div className={styles.inside}>
+                  {imageSet.images.map((src, index) => (
+                    <img key={index} src={src} alt={imageSet.alt[index]} />
+                  ))}
+                </div>
               </button>
             ))}
           </div>
@@ -70,4 +110,80 @@ const Filter = () => {
     </div>
   );
 };
+
 export default Filter;
+
+// import { useState } from "react";
+// import styles from "./filter.module.css";
+// import Select from "react-select";
+// const Filter = () => {
+//   const options = [
+//     { value: "chocolate", label: "Chocolate" },
+//     { value: "strawberry", label: "Strawberry" },
+//     { value: "vanilla", label: "Vanilla" },
+//   ];
+
+//   const [highlightedButtons, setHighlightedButtons] = useState([]);
+
+//   const handleButtonClick = (buttonId) => {
+//     // Перевіряємо, чи кнопка вже виділена
+//     const index = highlightedButtons.indexOf(buttonId);
+//     if (index !== -1) {
+//       // Якщо кнопка вже виділена, видаляємо її зі списку виділених
+//       setHighlightedButtons((prevState) => prevState.filter((id) => id !== buttonId));
+//     } else {
+//       // Якщо кнопка не виділена, додаємо її до списку виділених
+//       setHighlightedButtons((prevState) => [...prevState, buttonId]);
+//     }
+//   };
+//   return (
+
+//     <div className={styles.filters}>
+//       <div>Location</div>
+//       <Select options={options} />
+//       <div>Filters</div>
+//       <h3>Vehicle equipment</h3>
+//       <hr />
+//       <div className={{ marginBottom: 24 }}>
+//         <div>
+//           <div className={styles.buttonContainer}>
+//             {[1, 2, 3, 4, 5].map((buttonId) => (
+//               <button
+//                 key={buttonId}
+//                 className={
+//                   highlightedButtons.includes(buttonId)
+//                     ? `${styles.button} ${styles.highlighted}`
+//                     : styles.button
+//                 }
+//                 onClick={() => handleButtonClick(buttonId)}
+//               >
+//                 Button {buttonId}
+//               </button>
+//             ))}
+//           </div>
+//         </div>
+//         <div>
+//           <h3>Vehicle type</h3>
+//           <hr />
+//           <div className={styles.buttonContainer}>
+//             {[6, 7, 8].map((buttonId) => (
+//               <button
+//                 key={buttonId}
+//                 className={
+//                   highlightedButtons.includes(buttonId)
+//                     ? `${styles.button} ${styles.highlighted}`
+//                     : styles.button
+//                 }
+//                 onClick={() => handleButtonClick(buttonId)}
+//               >
+//                 Button {buttonId}
+//               </button>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//       <button>Search</button>
+//     </div>
+//   );
+// };
+// export default Filter;

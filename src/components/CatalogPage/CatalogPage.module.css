@@ -3,10 +3,6 @@
   gap: 28px;
 }
 
-.Filters {
-  max-width: 170px;
-}
-
 .CamppersContainer {
   max-width: 888px;
   flex-direction: column;

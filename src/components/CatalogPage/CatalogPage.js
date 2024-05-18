@@ -35,7 +35,7 @@ const CatalogPage = () => {
             {data?.slice(0, visibleCount).map((el) => {
               return (
                 <div className={styles.Campper} key={el._id}>
-                  <img width={290} height={200} alt="img" src={el.gallery[0]} />
+                  <img width={290} height={280} alt="img" src={el.gallery[0]} />
                   <div className={styles.Info}>
                     <div className={styles.title}>
                       <div>{el.name}</div>
