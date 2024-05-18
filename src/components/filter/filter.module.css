@@ -1,3 +1,34 @@
 .filters {
-  max-width: 170px;
+  max-width: 360px;
+}
+
+/* ButtonHighlight.module.css */
+
+.buttonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.button {
+  width: 112px;
+  height: 95px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  background-color: #ffffff;
+  border: 1px solid #d2d4d7;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.button:last-child {
+  margin-right: 0;
+}
+
+.highlighted {
+  border-color: #00ff00; /* Зелений колір для бордера */
+}
+
+/* Оновлення стилів для виділених кнопок */
+.highlighted:hover {
+  background-color: #ffffff; /* Відключення фону при наведенні, щоб виділявся лише бордер */
 }

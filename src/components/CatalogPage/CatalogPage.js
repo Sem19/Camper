@@ -6,6 +6,7 @@ import Heart from "../Shared/Heart/Heart";
 import Rating from "../../assets/Rating.png";
 import locatin from "../../assets/location.png";
 import { Modal } from "@mui/material";
+import Filter from "../filter/filter";
 const CatalogPage = () => {
   const { data, error, isLoading } = useGetCampperDataQuery();
   const [visibleCount, setVisibleCount] = useState(4);
@@ -27,17 +28,8 @@ const CatalogPage = () => {
       ) : (
         <>
           {" "}
-          <div className={styles.Filters}>
-            <div>Location</div>
-            <input />
-            <div>Filters</div>
-            <h3>Vehicle equipment</h3>
-            <hr />
-            <p>Block with tabs</p>
-            <h3>Vehicle type</h3>
-            <hr />
-            <p>Block with tabs</p>
-            <button>Search</button>
+          <div>
+            <Filter />
           </div>
           <div className={styles.CamppersContainer}>
             {data?.slice(0, visibleCount).map((el) => {
