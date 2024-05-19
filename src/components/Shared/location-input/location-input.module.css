@@ -1,0 +1,33 @@
+/* src/components/LocationInput.module.css */
+.locationInputContainer {
+  margin: 8px 0 32px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.locationInput {
+  width: 100%;
+  padding: 8px 8px 8px 30px; /* Add padding (top-right-bottom-left) and adjust left padding for icon */
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Add border radius */
+  outline: none;
+  color: grey; /* Set the input text color to grey */
+  font-size: 16px;
+  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
+.locationInput::placeholder {
+  color: grey; /* Set the placeholder text color to grey */
+}
+
+.locationIcon {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%); /* Center the icon vertically */
+  width: 16px; /* Adjust the width and height as needed */
+  height: 16px;
+  pointer-events: none; /* Ensure the icon doesn't block input events */
+}
