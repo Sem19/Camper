@@ -22,7 +22,9 @@
   border-radius: 6px;
   cursor: pointer;
 }
-
+.button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
 .highlighted {
   border-color: #00ff00; /* Зелений колір для бордера */
 }

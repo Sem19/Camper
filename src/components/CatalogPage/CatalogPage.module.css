@@ -35,11 +35,9 @@ button {
     border-color 0.3s;
 }
 button:hover {
-  background-color: #151803;
-  border-color: #030d18;
+  background-color: #e44848;
+  border-color: #070707;
   color: #ffffff;
-}
-.Info {
 }
 .title {
   display: flex;
@@ -74,4 +72,15 @@ button:hover {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.loadMoreButton {
+  border: 2px solid #e3e5e8;
+  background-color: #ffffff;
+  color: #101828;
+}
+.loadMoreButton:hover {
+  border: 2px solid #e44848;
+  background-color: #ffffff;
+  color: #101828;
 }
