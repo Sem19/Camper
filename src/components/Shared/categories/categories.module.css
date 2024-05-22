@@ -1,3 +1,24 @@
 .categories {
-  background-color: bisque;
+  margin: 24px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.categories > div {
+  display: flex;
+  align-items: center;
+  margin: 8px;
+  padding: 8px 18px;
+  border-radius: 25px;
+  background-color: #f2f4f7;
+  color: #101828;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.categories img {
+  margin-right: 10px;
 }

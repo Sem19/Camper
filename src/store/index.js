@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import UrlReducer from "../feature/url";
+import favoriteReducer from "../feature/favorites/favorites";
 import { campperApi } from "../services/campper/campper";
 
 export const store = configureStore({
   reducer: {
-    url: UrlReducer,
+    favorite: favoriteReducer,
     [campperApi.reducerPath]: campperApi.reducer,
   },
 
