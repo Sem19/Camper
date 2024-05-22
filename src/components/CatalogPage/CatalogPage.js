@@ -14,13 +14,17 @@ import { addFavoriteItem, removeFavoriteItem } from "../../feature/favorites/fav
 const CatalogPage = () => {
   const { data, error, isLoading } = useGetCampperDataQuery();
   const [visibleCount, setVisibleCount] = useState(4);
+  const [selectedCampper, setSelectedCampper] = useState(null);
 
   const handleLoadMore = () => {
     setVisibleCount((prevCount) => prevCount + 4);
   };
 
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleShowMore = (campper) => {
+    setOpen(true);
+    setSelectedCampper(campper);
+  };
   const handleClose = () => setOpen(false);
 
   const dispatch = useDispatch();
@@ -40,9 +44,22 @@ const CatalogPage = () => {
       dispatch(addFavoriteItem(addItem));
     }
   };
-  console.log(listOfFavorites);
+  // console.log(listOfFavorites);
   return (
     <div className={styles.CatalogPage}>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <div className={styles.modalContainer}>
+          <div className={styles.insideModal}>
+            <h1>{selectedCampper?.name}</h1>
+            <p>{selectedCampper?.description}</p>
+          </div>
+        </div>
+      </Modal>
       {isLoading ? (
         <Spiner />
       ) : (
@@ -86,22 +103,9 @@ const CatalogPage = () => {
                     water={el.details.water}
                     microwave={el.details.microwave}
                   />
-                  <button className={styles.button} onClick={handleOpen}>
+                  <button className={styles.button} onClick={() => handleShowMore(el)}>
                     show more
                   </button>
-                  <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                  >
-                    <div className={styles.modalContainer}>
-                      <div className={styles.insideModal}>
-                        <h1>modal</h1>
-                        <p>text</p>
-                      </div>
-                    </div>
-                  </Modal>
                 </div>
               </div>
             ))}
