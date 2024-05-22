@@ -9,6 +9,7 @@ import { Modal } from "@mui/material";
 import Filter from "../filter/filter";
 import Categories from "../Shared/categories/categories";
 import { useDispatch, useSelector } from "react-redux";
+import { addFavoriteItem, removeFavoriteItem } from "../../feature/favorites/favorites";
 
 const CatalogPage = () => {
   const { data, error, isLoading } = useGetCampperDataQuery();
@@ -25,16 +26,21 @@ const CatalogPage = () => {
   const dispatch = useDispatch();
   const listOfFavorites = useSelector((state) => state.favorite.listOfFavorites);
 
-  const addToFavorites = (item) => {
-    const addItem = {
-      id: item._id,
-      price: item.price,
-      count: 1,
-      title: item.name,
-    };
-    console.log(addItem);
+  const isFavorite = (item) => listOfFavorites.some((fav) => fav.id === item._id);
+  const handleFavoriteClick = (item) => {
+    if (isFavorite(item)) {
+      dispatch(removeFavoriteItem(item._id));
+    } else {
+      const addItem = {
+        id: item._id,
+        price: item.price,
+        count: 1,
+        title: item.name,
+      };
+      dispatch(addFavoriteItem(addItem));
+    }
   };
-
+  console.log(listOfFavorites);
   return (
     <div className={styles.CatalogPage}>
       {isLoading ? (
@@ -53,12 +59,7 @@ const CatalogPage = () => {
                     <div>{el.name}</div>
                     <div className={styles.PriceBlock}>
                       <div>${el.price}</div>
-                      <Heart
-                        onClick={(e) => {
-                          // e.stopPropagation();
-                          addToFavorites(el);
-                        }}
-                      />
+                      <Heart isFavorite={isFavorite(el)} onClick={() => handleFavoriteClick(el)} />
                     </div>
                   </h3>
                   <div className={styles.raiting}>
