@@ -58,6 +58,7 @@ button:hover {
 }
 
 .modalContainer {
+  width: 982px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -65,8 +66,17 @@ button:hover {
 }
 
 .insideModal {
-  background-color: antiquewhite;
+  background-color: #ffffff;
   padding: 16px;
+  border-radius: 8px;
+}
+
+.modalImages {
+  display: flex;
+  gap: 16px;
+}
+.modalImages > img {
+  border-radius: 8px;
 }
 .PriceBlock {
   display: flex;
