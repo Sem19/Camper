@@ -103,6 +103,11 @@ section {
 body {
   line-height: 1;
   font-family: "Inter", sans-serif;
+  /* background-image: url(../src/assets/doroga-gory-peyzazh-6020.jpg);
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0; */
 }
 ol,
 ul {

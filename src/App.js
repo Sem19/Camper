@@ -1,11 +1,11 @@
 import "./reset.css";
 import "./index.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from "./components/Header/Header";
-import HomePage from "./components/HomePage/HomePage";
-import CatalogPage from "./components/CatalogPage/CatalogPage";
-import FavoritesPage from "./components/FavoritesPage/FavoritesPage";
+import Header from "./components/header/header";
+import CatalogPage from "./components/catalog-page/catalog-page";
 import ErrorBoundary from "./components/Shared/error-boundary/error-boundary";
+import FavoritesPage from "./components/favorites-page/favorites-page";
+import HomePage from "./components/home-page/home-page";
 
 function App() {
   return (

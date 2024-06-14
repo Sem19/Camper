@@ -1,0 +1,62 @@
+.form {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.form > p {
+  color: #475467;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 14px;
+  font-weight: bold;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 18px 18px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+}
+
+.formGroup textarea {
+  resize: vertical;
+}
+
+.error {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 5px;
+}
+
+.submitButton {
+  display: inline-block;
+  padding: 10px 20px;
+  width: 120px;
+  border: 2px solid #e44848;
+  border-radius: 25px;
+  background-color: #e44848;
+  color: #fff;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.submitButton:hover {
+  background-color: #e44848;
+  border-color: #070707;
+  color: #ffffff;
+}

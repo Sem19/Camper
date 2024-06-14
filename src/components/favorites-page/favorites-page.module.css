@@ -1,0 +1,44 @@
+.favoritesPage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.favoriteItem > img {
+  border-radius: 8px;
+}
+.favoritesContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.favoritesHeader {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.favoriteItem {
+  width: calc(50% - 8px);
+  margin-bottom: 16px;
+  text-align: center;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (min-width: 768px) {
+  .favoriteItem {
+    width: calc(33.33% - 8px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .favoriteItem {
+    width: calc(25% - 8px);
+  }
+}

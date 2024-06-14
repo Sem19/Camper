@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import favoriteReducer from "../feature/favorites/favorites";
-import formReducer from "../feature/form/formSlice";
+import formReducer from "../feature/form/form-slice";
 import { campperApi } from "../services/campper/campper";
 
 export const store = configureStore({
