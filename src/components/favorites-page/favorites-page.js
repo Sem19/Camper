@@ -1,8 +1,15 @@
 import { useSelector } from "react-redux";
 import styles from "./favorites-page.module.css";
+import { useNavigate } from "react-router";
 
 const FavoritesPage = () => {
   const listOfFavorites = useSelector((state) => state.favorite.listOfFavorites);
+
+  const navigate = useNavigate();
+
+  const handleShowMore = (itemId) => {
+    navigate(`/catalog?id=${itemId}`);
+  };
 
   return (
     <div className={styles.favoritesPage}>
@@ -18,6 +25,7 @@ const FavoritesPage = () => {
               <h2>{item.title}</h2>
               <img width={290} height={310} alt="img" src={item?.gallery[0]} />
               <p>Price: {item.price}</p>
+              <button onClick={() => handleShowMore(item.id)}>show more</button>
             </div>
           ))}
         </div>

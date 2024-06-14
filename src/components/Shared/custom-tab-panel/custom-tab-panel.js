@@ -70,7 +70,7 @@ export default function BasicTabs({ selectedCampper }) {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <div style={{ display: "flex" }}>
+        <div className={styles.CustomTabPanelContainer}>
           <div>
             <Categories adults={selectedCampper?.adults} beds={selectedCampper?.details.beds} />
             <h4>Vehicle details</h4>

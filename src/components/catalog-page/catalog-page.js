@@ -1,7 +1,7 @@
 import { useGetCampperDataQuery } from "../../services/campper/campper";
 import styles from "./catalog-page.module.css";
 import Spiner from "../Shared/spiner/spiner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Heart from "../Shared/heart/heart";
 import Rating from "../../assets/Rating.png";
 import locatin from "../../assets/location.png";
@@ -11,12 +11,27 @@ import Categories from "../Shared/categories/categories";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavoriteItem, removeFavoriteItem } from "../../feature/favorites/favorites";
 import CustomTabPanel from "../Shared/custom-tab-panel/custom-tab-panel";
+import { useLocation } from "react-router";
 
 const CatalogPage = () => {
   const { data, error, isLoading } = useGetCampperDataQuery();
   // console.log(data);
   const [visibleCount, setVisibleCount] = useState(4);
   const [selectedCampper, setSelectedCampper] = useState(null);
+
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const campperId = params.get("id");
+
+  useEffect(() => {
+    if (campperId && data) {
+      const selected = data.find((item) => item._id === campperId);
+      if (selected) {
+        setSelectedCampper(selected);
+        setOpen(true);
+      }
+    }
+  }, [campperId, data]);
 
   const handleLoadMore = () => {
     setVisibleCount((prevCount) => prevCount + 4);
@@ -27,7 +42,7 @@ const CatalogPage = () => {
     setSelectedCampper(campper);
     setOpen(true);
   };
-  console.log(selectedCampper);
+  // console.log(selectedCampper);
   const handleClose = () => setOpen(false);
 
   const dispatch = useDispatch();
