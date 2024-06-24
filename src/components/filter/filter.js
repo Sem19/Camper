@@ -16,15 +16,9 @@ import integrate from "../../assets/integrate.png";
 import integrate2 from "../../assets/integrate2.png";
 import alcove from "../../assets/alcove.png";
 import alcove2 from "../../assets/alcove2.png";
-import LocationIput from "../Shared/location-input/location-input";
+import AutoCompleteInput from "../Shared/auto-complete-input/AutoCompleteInput";
 
 const Filter = () => {
-  const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
-
   const [highlightedButtons, setHighlightedButtons] = useState([]);
 
   const images = [
@@ -55,7 +49,7 @@ const Filter = () => {
     <div className={styles.filters}>
       <div>
         <div>Location</div>
-        <LocationIput />
+        <AutoCompleteInput />
       </div>
       <div>
         <div>Filters</div>

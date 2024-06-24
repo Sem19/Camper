@@ -1,16 +1,8 @@
-import { useState } from "react";
-import heart1 from "../../../assets/heart1.png";
-import heart2 from "../../../assets/heart2.png";
+import { ReactComponent as HeartIcon } from "../../../assets/heart-icon.svg";
+import styles from "../../catalog-page/catalog-page.module.css";
 
 const Heart = ({ isFavorite, onClick }) => {
-  return (
-    <img
-      src={isFavorite ? heart2 : heart1}
-      alt="heart"
-      onClick={onClick}
-      style={{ cursor: "pointer" }}
-    />
-  );
+  return <HeartIcon className={isFavorite ? styles.favorite_icon : null} onClick={onClick} />;
 };
 
 export default Heart;

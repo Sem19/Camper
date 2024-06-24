@@ -96,3 +96,7 @@ button:hover {
   background-color: #ffffff;
   color: #101828;
 }
+
+.favorite_icon {
+  fill: red;
+}
