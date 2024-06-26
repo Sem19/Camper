@@ -1,5 +1,4 @@
 import styles from "./custom-tab-panel.module.css";
-
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Categories from "../categories/categories";
@@ -43,24 +42,24 @@ export default function BasicTabs({ selectedCampper }) {
             <StyledTab label="Reviews" value="2" />
           </TabList>
         </Box>
-        <div>
-          <TabPanel sx={{ width: "100%", padding: 0 }} value="1">
-            <div className={styles.CustomTabPanelContainer}>
+        <div className={styles.CustomTabPanelContainer}>
+          <TabPanel sx={{ padding: 0, maxWidth: 450, width: "100%" }} value="1">
+            <div className={styles.Reviews}>
               <div>
                 <Categories adults={selectedCampper?.adults} beds={selectedCampper?.details.beds} />
                 <h4>Vehicle details</h4>
                 <hr />
-                <div>Form {selectedCampper?.form}</div>
-                <div>Length:{selectedCampper?.length}</div>
-                <div>Width {selectedCampper?.width}</div>
-                <div>Height {selectedCampper?.height}</div>
-                <div>Tank {selectedCampper?.tank}</div>
-                <div>Consumption {selectedCampper?.consumption}</div>
+                <div>Form: {selectedCampper?.form}</div>
+                <div>Length: {selectedCampper?.length}</div>
+                <div>Width: {selectedCampper?.width}</div>
+                <div>Height: {selectedCampper?.height}</div>
+                <div>Tank: {selectedCampper?.tank}</div>
+                <div>Consumption: {selectedCampper?.consumption}</div>
               </div>
             </div>
           </TabPanel>
-          <TabPanel sx={{ padding: 0 }} value="2">
-            <div className={styles.CustomTabPanelContainer}>
+          <TabPanel sx={{ padding: 0, maxWidth: 450, width: "100%" }} value="2">
+            <div className={styles.Parametrs}>
               <div className={styles.Reviews}>
                 {selectedCampper.reviews.map((el, index) => (
                   <div key={index}>

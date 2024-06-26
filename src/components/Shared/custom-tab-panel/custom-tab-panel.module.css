@@ -1,14 +1,17 @@
 .CustomTabPanelContainer {
+  margin-top: 24px;
   display: flex;
   gap: 24px;
-  justify-content: space-between;
 }
 .Reviews {
-  font-family: "Inter", sans-serif;
   max-width: 450px;
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  margin-right: 24px;
 }
 .Parametrs {
   max-width: 450px;
+  width: 100%;
   font-family: "Inter", sans-serif;
   margin-right: 24px;
 }
