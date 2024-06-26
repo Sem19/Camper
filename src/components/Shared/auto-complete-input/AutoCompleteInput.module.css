@@ -1,67 +1,14 @@
-/* AutoCompleteInput.module.css */
 .container {
   margin: 8px 0 32px 0;
-  position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
-}
-
-.input {
-  width: 100%;
-  padding: 18px 18px 18px 40px; /* Adjust left padding for icon */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f7f7f7;
-  outline: none;
-  color: grey;
-  font-size: 16px;
-  box-sizing: border-box;
-}
-
-.input::placeholder {
-  color: grey;
 }
 
 .icon {
-  position: absolute;
-  left: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  pointer-events: none;
+  width: 24px; /* Встановіть відповідний розмір для іконки */
+  height: 24px; /* Встановіть відповідний розмір для іконки */
 }
 
-.focused {
-  border-color: rgb(2, 2, 2);
-  color: rgb(7, 7, 7);
-}
-
-.suggestionsContainer {
-  max-width: 200px;
-  margin-top: 2px;
-  position: absolute;
-  width: 100%;
-  /* border: 1px solid #ccc; */
-  border-top: none;
-  background-color: white;
-  max-height: 200px;
-  overflow-y: auto;
-  border-radius: 0 0 8px 8px;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-.suggestion {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.suggestionHighlighted {
-  background-color: #ddd;
-}
-
-.suggestion:hover {
-  background-color: #f0f0f0;
+.textField {
+  width: 100%; /* Щоб текстове поле займало весь доступний простір */
 }

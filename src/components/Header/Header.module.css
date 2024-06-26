@@ -4,12 +4,20 @@
   justify-content: center;
 }
 .NavLinks {
-  list-style: none;
   display: flex;
+  list-style: none;
   gap: 16px;
 }
 
 .NavLink {
   text-decoration: none;
-  color: black; /* Змінюємо колір тексту на чорний */
+  color: black;
+  position: relative;
+}
+
+.Badge {
+  position: absolute;
+  top: -8px;
+  right: -9px;
+  transform: translate(50%, -50%);
 }

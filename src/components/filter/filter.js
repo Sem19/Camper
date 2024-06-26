@@ -17,32 +17,48 @@ import integrate2 from "../../assets/integrate2.png";
 import alcove from "../../assets/alcove.png";
 import alcove2 from "../../assets/alcove2.png";
 import AutoCompleteInput from "../Shared/auto-complete-input/AutoCompleteInput";
+import { useDispatch } from "react-redux";
+import { toggleEquipment } from "../../feature/filters/filters";
 
 const Filter = () => {
+  const dispatch = useDispatch();
   const [highlightedButtons, setHighlightedButtons] = useState([]);
 
   const images = [
     {
       id: 1,
+      value: "airConditioner",
       images: [airConditioner, airConditioner2],
       alt: ["air conditioner", "air conditioner2"],
     },
-    { id: 2, images: [transmission, transmission2], alt: ["transmission", "transmission2"] },
-    { id: 3, images: [kitchen, kitchen2], alt: ["kitchen", "kitchen2"] },
-    { id: 4, images: [tv, tv2], alt: ["tv", "tv2"] },
-    { id: 5, images: [shower, shower2], alt: ["shower", "shower2"] },
-    { id: 6, images: [van, van2], alt: ["van", "van2"] },
-    { id: 7, images: [integrate, integrate2], alt: ["integrate", "integrate2"] },
-    { id: 8, images: [alcove, alcove2], alt: ["alcove", "alcove2"] },
+    {
+      id: 2,
+      value: "automatic",
+      images: [transmission, transmission2],
+      alt: ["transmission", "transmission2"],
+    },
+    { id: 3, value: "kitchen", images: [kitchen, kitchen2], alt: ["kitchen", "kitchen2"] },
+    { id: 4, value: "tv", images: [tv, tv2], alt: ["tv", "tv2"] },
+    { id: 5, value: "shower", images: [shower, shower2], alt: ["shower", "shower2"] },
+    { id: 6, value: "panelTruck", images: [van, van2], alt: ["van", "van2"] },
+    {
+      id: 7,
+      value: "fullyIntegrated",
+      images: [integrate, integrate2],
+      alt: ["integrate", "integrate2"],
+    },
+    { id: 8, value: "alcove", images: [alcove, alcove2], alt: ["alcove", "alcove2"] },
   ];
 
-  const handleButtonClick = (buttonId) => {
+  const handleButtonClick = (buttonId, value) => {
     const index = highlightedButtons.indexOf(buttonId);
     if (index !== -1) {
       setHighlightedButtons((prevState) => prevState.filter((id) => id !== buttonId));
     } else {
       setHighlightedButtons((prevState) => [...prevState, buttonId]);
     }
+    dispatch(toggleEquipment(value));
+    console.log(value);
   };
 
   return (
@@ -60,12 +76,13 @@ const Filter = () => {
             {images.slice(0, 5).map((imageSet) => (
               <button
                 key={imageSet.id}
+                value={imageSet.value}
                 className={
                   highlightedButtons.includes(imageSet.id)
                     ? `${styles.button} ${styles.highlighted}`
                     : styles.button
                 }
-                onClick={() => handleButtonClick(imageSet.id)}
+                onClick={() => handleButtonClick(imageSet.id, imageSet.value)}
               >
                 <div className={styles.inside}>
                   {imageSet.images.map((src, index) => (
@@ -83,12 +100,13 @@ const Filter = () => {
             {images.slice(5, 8).map((imageSet) => (
               <button
                 key={imageSet.id}
+                value={imageSet.value}
                 className={
                   highlightedButtons.includes(imageSet.id)
                     ? `${styles.button} ${styles.highlighted}`
                     : styles.button
                 }
-                onClick={() => handleButtonClick(imageSet.id)}
+                onClick={() => handleButtonClick(imageSet.id, imageSet.value)}
               >
                 <div className={styles.inside}>
                   {imageSet.images.map((src, index) => (

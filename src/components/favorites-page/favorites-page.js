@@ -23,7 +23,7 @@ const FavoritesPage = () => {
             <div key={item._id} className={styles.favoriteItem}>
               <h2>{item.title}</h2>
               <img width={290} height={310} alt="img" src={item?.gallery[0]} />
-              <p>Price: {item.price}</p>
+              <p>Price: ${item.price}</p>
               <button onClick={() => setSelectedCampper(item)}>show more</button>
             </div>
           ))}

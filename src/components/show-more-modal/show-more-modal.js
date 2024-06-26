@@ -4,7 +4,6 @@ import Rating from "../../assets/Rating.png";
 import locatin from "../../assets/location.png";
 
 const ShowMoreModal = ({ selectedCampper }) => {
-  console.log(selectedCampper);
   return (
     <div className={styles.modalContainer}>
       <div className={styles.insideModal}>

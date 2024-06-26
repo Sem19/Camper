@@ -97,6 +97,8 @@ button:hover {
   color: #101828;
 }
 
-.favorite_icon {
-  fill: red;
+.favorite_icon,
+.favorite_icon path {
+  fill: #e44848;
+  stroke: #e44848;
 }

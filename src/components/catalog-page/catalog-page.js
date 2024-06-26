@@ -2,7 +2,7 @@ import { useGetCampperDataQuery } from "../../services/campper/campper";
 import styles from "./catalog-page.module.css";
 import Spiner from "../Shared/spiner/spiner";
 import { useState } from "react";
-import { ListItem, Modal } from "@mui/material";
+import { Modal } from "@mui/material";
 import Filter from "../filter/filter";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavoriteItem, removeFavoriteItem } from "../../feature/favorites/favorites";
@@ -12,7 +12,7 @@ import CamperItem from "../camper-item/camper-item";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
-  const { location } = useSelector((state) => state.filter);
+  const { location, equipment } = useSelector((state) => state.filter);
   const { data = [], error, isLoading } = useGetCampperDataQuery();
   const listOfFavorites = useSelector((state) => state.favorite.listOfFavorites);
   const [visibleCount, setVisibleCount] = useState(4);
@@ -22,8 +22,6 @@ const CatalogPage = () => {
   const handleClose = () => setSelectedCampper(null);
   const handleShowMore = (campper) => setSelectedCampper(campper);
 
-  // console.log(selectedCampper);
-
   const isFavorite = (item) => listOfFavorites.some((fav) => fav?._id === item?._id);
   const handleFavoriteClick = (item, isFavoriteItem) => {
     if (isFavoriteItem) dispatch(removeFavoriteItem(item._id));
@@ -31,9 +29,17 @@ const CatalogPage = () => {
   };
 
   const filteredArray = () => {
-    let array = [...data.slice(0, visibleCount)];
-    if (location) array = array.filter((el) => el.location.toLowerCase().includes(location));
-    return array;
+    let array = [...data];
+
+    if (location) {
+      array = array.filter((el) => el.location.toLowerCase().includes(location.toLowerCase()));
+    }
+
+    if (equipment && equipment.length > 0) {
+      array = array.filter((el) => equipment.includes(el.form));
+    }
+
+    return array.slice(0, visibleCount);
   };
 
   return (
