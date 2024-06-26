@@ -3,13 +3,14 @@
   display: flex;
   gap: 24px;
 }
-.Reviews {
+.Parametrs {
   max-width: 450px;
   width: 100%;
-  font-family: "Inter", sans-serif;
-  margin-right: 24px;
 }
-.Parametrs {
+.titleParametrs {
+  font-family: "Inter", sans-serif;
+}
+.Reviews {
   max-width: 450px;
   width: 100%;
   font-family: "Inter", sans-serif;

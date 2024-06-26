@@ -17,11 +17,13 @@ import integrate2 from "../../assets/integrate2.png";
 import alcove from "../../assets/alcove.png";
 import alcove2 from "../../assets/alcove2.png";
 import AutoCompleteInput from "../Shared/auto-complete-input/AutoCompleteInput";
-import { useDispatch } from "react-redux";
-import { toggleEquipment } from "../../feature/filters/filters";
+import { useDispatch, useSelector } from "react-redux";
+import { onChangeCampperType, onChangeEquipment } from "../../feature/filters/filters";
+import ClassNames from "classnames";
 
 const Filter = () => {
   const dispatch = useDispatch();
+  const { type, equipment } = useSelector((state) => state.filter);
   const [highlightedButtons, setHighlightedButtons] = useState([]);
 
   const images = [
@@ -38,7 +40,7 @@ const Filter = () => {
       alt: ["transmission", "transmission2"],
     },
     { id: 3, value: "kitchen", images: [kitchen, kitchen2], alt: ["kitchen", "kitchen2"] },
-    { id: 4, value: "tv", images: [tv, tv2], alt: ["tv", "tv2"] },
+    { id: 4, value: "TV", images: [tv, tv2], alt: ["tv", "tv2"] },
     { id: 5, value: "shower", images: [shower, shower2], alt: ["shower", "shower2"] },
     { id: 6, value: "panelTruck", images: [van, van2], alt: ["van", "van2"] },
     {
@@ -49,7 +51,7 @@ const Filter = () => {
     },
     { id: 8, value: "alcove", images: [alcove, alcove2], alt: ["alcove", "alcove2"] },
   ];
-
+  /* 
   const handleButtonClick = (buttonId, value) => {
     const index = highlightedButtons.indexOf(buttonId);
     if (index !== -1) {
@@ -59,6 +61,16 @@ const Filter = () => {
     }
     dispatch(toggleEquipment(value));
     console.log(value);
+  }; */
+
+  const onChangeEquipments = (value) => {
+    if (equipment.includes(value)) {
+      dispatch(onChangeEquipment(equipment.filter((el) => el !== value)));
+    } else dispatch(onChangeEquipment([...equipment, value]));
+  };
+
+  const onChangeType = (value) => {
+    dispatch(onChangeCampperType(value));
   };
 
   return (
@@ -77,12 +89,11 @@ const Filter = () => {
               <button
                 key={imageSet.id}
                 value={imageSet.value}
-                className={
-                  highlightedButtons.includes(imageSet.id)
-                    ? `${styles.button} ${styles.highlighted}`
-                    : styles.button
-                }
-                onClick={() => handleButtonClick(imageSet.id, imageSet.value)}
+                className={ClassNames(
+                  styles.button,
+                  equipment.includes(imageSet.value) ? styles.highlighted : null,
+                )}
+                onClick={() => onChangeEquipments(imageSet.value)}
               >
                 <div className={styles.inside}>
                   {imageSet.images.map((src, index) => (
@@ -101,12 +112,11 @@ const Filter = () => {
               <button
                 key={imageSet.id}
                 value={imageSet.value}
-                className={
-                  highlightedButtons.includes(imageSet.id)
-                    ? `${styles.button} ${styles.highlighted}`
-                    : styles.button
-                }
-                onClick={() => handleButtonClick(imageSet.id, imageSet.value)}
+                className={ClassNames(
+                  styles.button,
+                  type === imageSet.value ? styles.highlighted : null,
+                )}
+                onClick={() => onChangeType(imageSet.value)}
               >
                 <div className={styles.inside}>
                   {imageSet.images.map((src, index) => (
@@ -118,7 +128,7 @@ const Filter = () => {
           </div>
         </div>
       </div>
-      <button>Search</button>
+      {/* <button>Search</button> */}
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   location: "",
   equipment: [],
+  type: "",
 };
 
 const filterSlice = createSlice({
@@ -12,16 +13,14 @@ const filterSlice = createSlice({
     onChangeLocation: (state, action) => {
       state.location = action.payload;
     },
-    toggleEquipment: (state, action) => {
-      const equipmentValue = action.payload;
-      if (state.equipment.includes(equipmentValue)) {
-        state.equipment = state.equipment.filter((item) => item !== equipmentValue);
-      } else {
-        state.equipment.push(equipmentValue);
-      }
+    onChangeCampperType: (state, action) => {
+      state.type = action.payload;
+    },
+    onChangeEquipment: (state, action) => {
+      state.equipment = action.payload;
     },
   },
 });
 
-export const { onChangeLocation, toggleEquipment } = filterSlice.actions;
+export const { onChangeLocation, onChangeCampperType, onChangeEquipment } = filterSlice.actions;
 export default filterSlice.reducer;

@@ -12,7 +12,7 @@ import CamperItem from "../camper-item/camper-item";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
-  const { location, equipment } = useSelector((state) => state.filter);
+  const { location, type, equipment } = useSelector((state) => state.filter);
   const { data = [], error, isLoading } = useGetCampperDataQuery();
   const listOfFavorites = useSelector((state) => state.favorite.listOfFavorites);
   const [visibleCount, setVisibleCount] = useState(4);
@@ -34,14 +34,17 @@ const CatalogPage = () => {
     if (location) {
       array = array.filter((el) => el.location.toLowerCase().includes(location.toLowerCase()));
     }
+    if (type) {
+      array = array.filter((el) => el.form === type);
+    }
 
-    if (equipment && equipment.length > 0) {
-      array = array.filter((el) => equipment.includes(el.form));
+    if (equipment.length) {
+      array = array.filter((ela) => equipment.every((el) => ela.details[el]));
     }
 
     return array.slice(0, visibleCount);
   };
-
+  console.log(filteredArray());
   return (
     <div className={styles.CatalogPage}>
       <Modal

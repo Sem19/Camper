@@ -20,13 +20,13 @@ const StyledTab = styled((props) => <Tab {...props} />)(({ theme, isloading }) =
   },
 }));
 
-export default function BasicTabs({ selectedCampper }) {
-  const [value, setValue] = useState("1");
+export default function BasicTabs({ selectedCampper, isReviews }) {
+  const [value, setValue] = useState(isReviews ? "2" : "1");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  console.log(selectedCampper);
   return (
     <Box sx={{ width: "100%" }}>
       <TabContext value={value}>
@@ -44,9 +44,9 @@ export default function BasicTabs({ selectedCampper }) {
         </Box>
         <div className={styles.CustomTabPanelContainer}>
           <TabPanel sx={{ padding: 0, maxWidth: 450, width: "100%" }} value="1">
-            <div className={styles.Reviews}>
-              <div>
-                <Categories adults={selectedCampper?.adults} beds={selectedCampper?.details.beds} />
+            <div className={styles.Parametrs}>
+              <div className={styles.titleParametrs}>
+                <Categories el={selectedCampper} key={selectedCampper._id} />
                 <h4>Vehicle details</h4>
                 <hr />
                 <div>Form: {selectedCampper?.form}</div>
@@ -59,8 +59,8 @@ export default function BasicTabs({ selectedCampper }) {
             </div>
           </TabPanel>
           <TabPanel sx={{ padding: 0, maxWidth: 450, width: "100%" }} value="2">
-            <div className={styles.Parametrs}>
-              <div className={styles.Reviews}>
+            <div className={styles.Reviews}>
+              <div>
                 {selectedCampper.reviews.map((el, index) => (
                   <div key={index}>
                     <div>

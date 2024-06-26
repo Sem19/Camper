@@ -3,7 +3,7 @@ import CustomTabPanel from "../Shared/custom-tab-panel/custom-tab-panel";
 import Rating from "../../assets/Rating.png";
 import locatin from "../../assets/location.png";
 
-const ShowMoreModal = ({ selectedCampper }) => {
+const ShowMoreModal = ({ selectedCampper, isReviews }) => {
   return (
     <div className={styles.modalContainer}>
       <div className={styles.insideModal}>
@@ -23,7 +23,7 @@ const ShowMoreModal = ({ selectedCampper }) => {
           <img width={240} height={260} alt="img" src={selectedCampper?.gallery[2]} />
         </div>
         <p>{selectedCampper?.description}</p>
-        <CustomTabPanel selectedCampper={selectedCampper} />
+        <CustomTabPanel selectedCampper={selectedCampper} isReviews={isReviews} />
       </div>
     </div>
   );

@@ -16,87 +16,21 @@ import gasImg from "../../../assets/gas.png";
 import waterImg from "../../../assets/water.png";
 import microwaveImg from "../../../assets/microwave.png";
 
-const Categories = ({
-  adults,
-  transmission,
-  ac,
-  petrol,
-  kitchen,
-  beds,
-  cd,
-  radio,
-  hob,
-  toilet,
-  shower,
-  freezer,
-  gas,
-  water,
-  microwave,
-}) => {
+
+
+const Categories = ({ el }) => {
   return (
     <div className={styles.categories}>
-      <div>
-        <img alt="adults" src={adultsImg} />
-        {adults} adults
-      </div>
-      <div>
-        <img alt="transmission" src={transmissionImg} />
-        {transmission}
-      </div>
-      <div>
-        <img alt="ac" src={airConditionerImg} />
-        AC
-      </div>
-      <div>
-        <img alt="petrol" src={petrolImg} />
-        {petrol}
-      </div>
-      <div>
-        <img alt="kitchen" src={kitchenImg} />
-        kitchen
-      </div>
-      <div>
-        <img alt="beds" src={bedsImg} />
-        {beds} beds
-      </div>
-      {/* <div>
-        <img alt="cd" src={cdImg} />
-        CD: {cd}
-      </div> */}
-      {/* <div>
-        <img alt="radio" src={radioImg} />
-        Radio: {radio}
-      </div>
-      <div>
-        <img alt="hob" src={hobImg} />
-        Hob: {hob}
-      </div>
-      <div>
-        <img alt="toilet" src={toiletImg} />
-        Toilet: {toilet}
-      </div>
-      <div>
-        <img alt="shower" src={showerImg} />
-        Shower: {shower}
-      </div>
-      <div>
-        <img alt="freezer" src={freezerImg} />
-        Freezer: {freezer}
-      </div>
-      <div>
-        <img alt="gas" src={gasImg} />
-        Gas: {gas}
-      </div>
-      <div>
-        <img alt="water" src={waterImg} />
-        Water: {water}
-      </div>
-      <div>
-        <img alt="microwave" src={microwaveImg} />
-        Microwave: {microwave}
-      </div> */}
+      <div>{el.adults} adults</div>
+      <div>{el.transmission}</div>
+      <div>{el.details.airConditioner} AC</div>
+      <div>{el.engine}</div>
+      <div>{el.details.kitchen}</div>
+      <div>{el.details.beds} beds</div>
+      <div>{el.details.CD}</div>
+      <div>{el.details.Radio} Radio</div>
+      <div>{el.details.hob} hob</div>
     </div>
   );
 };
-
 export default Categories;
