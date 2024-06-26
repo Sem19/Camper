@@ -1,12 +1,20 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./favorites-page.module.css";
 import { Modal } from "@mui/material";
 import { useState } from "react";
 import ShowMoreModal from "../show-more-modal/show-more-modal";
+import Heart from "../Shared/heart/heart";
+import { addFavoriteItem, removeFavoriteItem } from "../../feature/favorites/favorites";
 
 const FavoritesPage = () => {
+  const dispatch = useDispatch();
+
   const [selectedCampper, setSelectedCampper] = useState(null);
   const listOfFavorites = useSelector((state) => state.favorite.listOfFavorites);
+  const handleFavoriteClick = (item, isFavoriteItem) => {
+    if (isFavoriteItem) dispatch(removeFavoriteItem(item._id));
+    else dispatch(addFavoriteItem(item));
+  };
 
   const handleClose = () => setSelectedCampper(null);
 
@@ -25,6 +33,9 @@ const FavoritesPage = () => {
               <img width={290} height={310} alt="img" src={item?.gallery[0]} />
               <p>Price: ${item.price}</p>
               <button onClick={() => setSelectedCampper(item)}>show more</button>
+              <div className={styles.heart}>
+                <Heart isFavorite={true} onClick={() => handleFavoriteClick(item, true)} />
+              </div>
             </div>
           ))}
         </div>
