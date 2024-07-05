@@ -1,6 +1,7 @@
+/*
 .CatalogPage {
   display: flex;
-  gap: 16px;
+  gap: 24px;
 }
 
 .CamppersContainer {
@@ -69,7 +70,7 @@ button:hover {
 
 .insideModal {
   background-color: #ffffff;
-  padding: 40px;
+  
   border-radius: 8px;
 }
 
@@ -101,4 +102,51 @@ button:hover {
 .favorite_icon path {
   fill: #e44848;
   stroke: #e44848;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+}
+*/
+
+.CatalogPage {
+  display: flex;
+  gap: 24px;
+}
+
+.CamppersContainer {
+  max-width: 888px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.loadMoreButton {
+  border: 2px solid #e3e5e8;
+  background-color: #ffffff;
+  color: #101828;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.loadMoreButton:hover {
+  background-color: #e44848;
+  border-color: #070707;
+  color: #ffffff;
+}
+.favorite_icon,
+.favorite_icon path {
+  fill: #e44848;
+  stroke: #e44848;
+}
+.muimodal {
+  overflow-y: auto;
 }

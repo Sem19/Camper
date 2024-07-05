@@ -10,9 +10,58 @@
 .titleParametrs {
   font-family: "Inter", sans-serif;
 }
+.vehicle_details {
+  margin-top: 16px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #101828;
+}
 .Reviews {
   max-width: 450px;
   width: 100%;
   font-family: "Inter", sans-serif;
   margin-right: 24px;
+}
+.reviewer_field {
+  display: flex;
+  position: relative;
+}
+.reviewer_rating {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0 8px 16px;
+}
+.letter {
+  position: absolute;
+  left: 23px;
+  top: 14px;
+  color: cornflowerblue;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+}
+.parametrsDiscription {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  display: grid;
+  grid-template-columns: auto auto; /* Розміщення в дві колонки */
+  gap: 8px; /* Відступи між елементами */
+}
+.paramName {
+  font-weight: bold; /* Жирний шрифт для назв параметрів */
+  justify-self: end; /* Вирівнювання тексту назви параметра праворуч */
+  margin-right: 8px; /* Додатковий відступ між назвою та значенням */
+}
+.comment {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+
+  color: #475467;
 }

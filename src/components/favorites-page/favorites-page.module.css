@@ -19,7 +19,7 @@
 .favoritesHeader {
   width: 100%;
   text-align: center;
-  margin-top: 40px;
+  /* margin-top: 40px; */
 }
 
 .favoriteItem {
@@ -31,10 +31,14 @@
   text-overflow: ellipsis;
   position: relative;
 }
-
+.price {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+}
 .heart {
   position: absolute;
-  top: 30px;
+  top: 15px;
   right: 20px;
   z-index: 1;
   cursor: pointer;
@@ -49,4 +53,24 @@
   .favoriteItem {
     width: calc(25% - 8px);
   }
+}
+
+button {
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #e44848;
+  border-radius: 25px;
+  background-color: #e44848;
+  color: #ffffff;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+button:hover {
+  background-color: #e44848;
+  border-color: #070707;
+  color: #ffffff;
 }

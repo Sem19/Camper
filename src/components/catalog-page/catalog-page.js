@@ -10,24 +10,26 @@ import { addFavoriteItem, removeFavoriteItem } from "../../feature/favorites/fav
 import ShowMoreModal from "../show-more-modal/show-more-modal";
 import CamperItem from "../camper-item/camper-item";
 
+const initialStateModal = { isFromReview: false, selectedCampper: null };
+
 const CatalogPage = () => {
   const dispatch = useDispatch();
   const { location, type, equipment } = useSelector((state) => state.filter);
   const { data = [], error, isLoading } = useGetCampperDataQuery();
   const listOfFavorites = useSelector((state) => state.favorite.listOfFavorites);
   const [visibleCount, setVisibleCount] = useState(4);
-  const [selectedCampper, setSelectedCampper] = useState(null);
-
+  const [selectedCampper, setSelectedCampper] = useState(initialStateModal);
   const handleLoadMore = () => setVisibleCount((prevCount) => prevCount + 4);
-  const handleClose = () => setSelectedCampper(null);
-  const handleShowMore = (campper) => setSelectedCampper(campper);
-
+  const handleClose = () => setSelectedCampper({ ...initialStateModal });
+  const handleShowMore = (campper, isReview = false) => {
+    setSelectedCampper({ selectedCampper: campper, isFromReview: isReview });
+  };
   const isFavorite = (item) => listOfFavorites.some((fav) => fav?._id === item?._id);
   const handleFavoriteClick = (item, isFavoriteItem) => {
     if (isFavoriteItem) dispatch(removeFavoriteItem(item._id));
     else dispatch(addFavoriteItem(item));
   };
-
+  console.log(data);
   const filteredArray = () => {
     let array = [...data];
 
@@ -44,17 +46,21 @@ const CatalogPage = () => {
 
     return array.slice(0, visibleCount);
   };
-  console.log(filteredArray());
+
   return (
     <div className={styles.CatalogPage}>
       <Modal
-        open={!!selectedCampper}
+        className={styles.muimodal}
+        open={!!selectedCampper.selectedCampper}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <div>
-          <ShowMoreModal selectedCampper={selectedCampper} />
+          <ShowMoreModal
+            selectedCampper={selectedCampper.selectedCampper}
+            isFromReview={selectedCampper.isFromReview}
+          />
         </div>
       </Modal>
       {isLoading ? (

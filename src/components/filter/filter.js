@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./filter.module.css";
 import airConditioner from "../../assets/airConditioner.png";
 import airConditioner2 from "../../assets/airConditioner2.png";
@@ -21,47 +20,35 @@ import { useDispatch, useSelector } from "react-redux";
 import { onChangeCampperType, onChangeEquipment } from "../../feature/filters/filters";
 import ClassNames from "classnames";
 
+const images = [
+  {
+    id: 1,
+    value: "airConditioner",
+    images: [airConditioner, airConditioner2],
+    alt: ["air conditioner", "air conditioner2"],
+  },
+  {
+    id: 2,
+    value: "automatic",
+    images: [transmission, transmission2],
+    alt: ["transmission", "transmission2"],
+  },
+  { id: 3, value: "kitchen", images: [kitchen, kitchen2], alt: ["kitchen", "kitchen2"] },
+  { id: 4, value: "TV", images: [tv, tv2], alt: ["tv", "tv2"] },
+  { id: 5, value: "shower", images: [shower, shower2], alt: ["shower", "shower2"] },
+  { id: 6, value: "panelTruck", images: [van, van2], alt: ["van", "van2"] },
+  {
+    id: 7,
+    value: "fullyIntegrated",
+    images: [integrate, integrate2],
+    alt: ["integrate", "integrate2"],
+  },
+  { id: 8, value: "alcove", images: [alcove, alcove2], alt: ["alcove", "alcove2"] },
+];
+
 const Filter = () => {
   const dispatch = useDispatch();
   const { type, equipment } = useSelector((state) => state.filter);
-  const [highlightedButtons, setHighlightedButtons] = useState([]);
-
-  const images = [
-    {
-      id: 1,
-      value: "airConditioner",
-      images: [airConditioner, airConditioner2],
-      alt: ["air conditioner", "air conditioner2"],
-    },
-    {
-      id: 2,
-      value: "automatic",
-      images: [transmission, transmission2],
-      alt: ["transmission", "transmission2"],
-    },
-    { id: 3, value: "kitchen", images: [kitchen, kitchen2], alt: ["kitchen", "kitchen2"] },
-    { id: 4, value: "TV", images: [tv, tv2], alt: ["tv", "tv2"] },
-    { id: 5, value: "shower", images: [shower, shower2], alt: ["shower", "shower2"] },
-    { id: 6, value: "panelTruck", images: [van, van2], alt: ["van", "van2"] },
-    {
-      id: 7,
-      value: "fullyIntegrated",
-      images: [integrate, integrate2],
-      alt: ["integrate", "integrate2"],
-    },
-    { id: 8, value: "alcove", images: [alcove, alcove2], alt: ["alcove", "alcove2"] },
-  ];
-  /* 
-  const handleButtonClick = (buttonId, value) => {
-    const index = highlightedButtons.indexOf(buttonId);
-    if (index !== -1) {
-      setHighlightedButtons((prevState) => prevState.filter((id) => id !== buttonId));
-    } else {
-      setHighlightedButtons((prevState) => [...prevState, buttonId]);
-    }
-    dispatch(toggleEquipment(value));
-    console.log(value);
-  }; */
 
   const onChangeEquipments = (value) => {
     if (equipment.includes(value)) {
@@ -76,13 +63,13 @@ const Filter = () => {
   return (
     <div className={styles.filters}>
       <div>
-        <div>Location</div>
+        <div className={styles.small_title}>Location</div>
         <AutoCompleteInput />
       </div>
       <div>
-        <div>Filters</div>
+        <div className={styles.small_title}>Filters</div>
         <div>
-          <h3>Vehicle equipment</h3>
+          <h3 className={styles.title}>Vehicle equipment</h3>
           <hr />
           <div className={styles.buttonContainer}>
             {images.slice(0, 5).map((imageSet) => (
@@ -105,7 +92,7 @@ const Filter = () => {
           </div>
         </div>
         <div>
-          <h3>Vehicle type</h3>
+          <h3 className={styles.title}>Vehicle type</h3>
           <hr />
           <div className={styles.buttonContainer}>
             {images.slice(5, 8).map((imageSet) => (
@@ -128,7 +115,6 @@ const Filter = () => {
           </div>
         </div>
       </div>
-      {/* <button>Search</button> */}
     </div>
   );
 };

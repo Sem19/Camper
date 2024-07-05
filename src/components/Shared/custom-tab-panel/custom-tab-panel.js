@@ -9,6 +9,7 @@ import { Rating } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import TabPanel from "@mui/lab/TabPanel";
 import { useState } from "react";
+import avatar from "../../../assets/avatar.svg";
 
 const StyledTab = styled((props) => <Tab {...props} />)(({ theme, isloading }) => ({
   fontWeight: 600,
@@ -20,13 +21,13 @@ const StyledTab = styled((props) => <Tab {...props} />)(({ theme, isloading }) =
   },
 }));
 
-export default function BasicTabs({ selectedCampper, isReviews }) {
-  const [value, setValue] = useState(isReviews ? "2" : "1");
+export default function CustomTabPanel({ selectedCampper, isFromReview }) {
+  const [value, setValue] = useState(isFromReview ? "2" : "1");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  console.log(selectedCampper);
+
   return (
     <Box sx={{ width: "100%" }}>
       <TabContext value={value}>
@@ -47,14 +48,29 @@ export default function BasicTabs({ selectedCampper, isReviews }) {
             <div className={styles.Parametrs}>
               <div className={styles.titleParametrs}>
                 <Categories el={selectedCampper} key={selectedCampper._id} />
-                <h4>Vehicle details</h4>
+                <h4 className={styles.vehicle_details}>Vehicle details</h4>
                 <hr />
-                <div>Form: {selectedCampper?.form}</div>
-                <div>Length: {selectedCampper?.length}</div>
-                <div>Width: {selectedCampper?.width}</div>
-                <div>Height: {selectedCampper?.height}</div>
-                <div>Tank: {selectedCampper?.tank}</div>
-                <div>Consumption: {selectedCampper?.consumption}</div>
+                <div className={styles.parametrsDiscription}>
+                  <div>
+                    <span className={styles.paramName}>Form:</span> {selectedCampper?.form}
+                  </div>
+                  <div>
+                    <span className={styles.paramName}>Length:</span> {selectedCampper?.length}
+                  </div>
+                  <div>
+                    <span className={styles.paramName}>Width:</span> {selectedCampper?.width}
+                  </div>
+                  <div>
+                    <span className={styles.paramName}>Height:</span> {selectedCampper?.height}
+                  </div>
+                  <div>
+                    <span className={styles.paramName}>Tank:</span> {selectedCampper?.tank}
+                  </div>
+                  <div>
+                    <span className={styles.paramName}>Consumption:</span>{" "}
+                    {selectedCampper?.consumption}
+                  </div>
+                </div>
               </div>
             </div>
           </TabPanel>
@@ -64,16 +80,26 @@ export default function BasicTabs({ selectedCampper, isReviews }) {
                 {selectedCampper.reviews.map((el, index) => (
                   <div key={index}>
                     <div>
-                      <div>
-                        <Rating
-                          name="half-rating-read"
-                          value={parseFloat(el.reviewer_rating)}
-                          precision={1}
-                          readOnly
+                      <div className={styles.reviewer_field}>
+                        <img
+                          width={60}
+                          height={60}
+                          alt="location"
+                          src={avatar}
+                          className={styles.reviewer_avatar}
                         />
-                        <div>{el.reviewer_name}</div>
+                        <h2 className={styles.letter}>{el.reviewer_name[0]}</h2>
+                        <div className={styles.reviewer_rating}>
+                          <div>{el.reviewer_name}</div>
+                          <Rating
+                            name="half-rating-read"
+                            value={parseFloat(el.reviewer_rating)}
+                            precision={1}
+                            readOnly
+                          />
+                        </div>
                       </div>
-                      <p>{el.comment}</p>
+                      <p className={styles.comment}>{el.comment}</p>
                     </div>
                   </div>
                 ))}

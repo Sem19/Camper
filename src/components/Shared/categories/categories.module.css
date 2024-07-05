@@ -1,5 +1,4 @@
 .categories {
-  margin: 24px 0;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -8,7 +7,7 @@
 .categories > div {
   display: flex;
   align-items: center;
-  margin: 8px;
+  margin: 6px;
   padding: 8px 18px;
   border-radius: 25px;
   background-color: #f2f4f7;

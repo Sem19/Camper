@@ -20,9 +20,7 @@ const FavoritesPage = () => {
 
   return (
     <div className={styles.favoritesPage}>
-      <div className={styles.favoritesHeader}>
-        <h1>Favorites Items</h1>
-      </div>
+      <div className={styles.favoritesHeader}>{/* <p>Favorites Campper</p> */}</div>
       {listOfFavorites.length === 0 ? (
         <p>No favorite items</p>
       ) : (
@@ -31,7 +29,7 @@ const FavoritesPage = () => {
             <div key={item._id} className={styles.favoriteItem}>
               <h2>{item.title}</h2>
               <img width={290} height={310} alt="img" src={item?.gallery[0]} />
-              <p>Price: ${item.price}</p>
+              <p className={styles.price}>Price: ${item.price}</p>
               <button onClick={() => setSelectedCampper(item)}>show more</button>
               <div className={styles.heart}>
                 <Heart isFavorite={true} onClick={() => handleFavoriteClick(item, true)} />

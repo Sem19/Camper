@@ -1,9 +1,9 @@
 import Categories from "../Shared/categories/categories";
 import Heart from "../Shared/heart/heart";
-import styles from "../catalog-page/catalog-page.module.css";
+import styles from "./camper-item.module.css";
 import Rating from "../../assets/Rating.png";
 import locatin from "../../assets/location.png";
-const CamperItem = ({ el, handleShowMore, handleFavoriteClick, isFavorite }) => {
+const CamperItem = ({ el, handleShowMore, handleFavoriteClick, isFavorite, buyItem }) => {
   const isFavoriteItem = isFavorite(el);
   // console.log(isFavoriteItem);
   return (
@@ -23,10 +23,10 @@ const CamperItem = ({ el, handleShowMore, handleFavoriteClick, isFavorite }) => 
         <div className={styles.raiting}>
           <img alt="rating" src={Rating} />
           <a
-            href="/catalog"
+            href="/#"
             onClick={(e) => {
               e.preventDefault();
-              handleShowMore(el);
+              handleShowMore(el, true);
             }}
           >
             {el.rating} Reviews
@@ -36,9 +36,14 @@ const CamperItem = ({ el, handleShowMore, handleFavoriteClick, isFavorite }) => 
         </div>
         <p className={styles.description}>{el.description}</p>
         <Categories el={el} key={el._id} />
-        <button className={styles.button} onClick={() => handleShowMore(el)}>
-          show more
-        </button>
+        <div className={styles.buttons}>
+          <button className={styles.button} onClick={() => handleShowMore(el)}>
+            show more
+          </button>
+          <button className={styles.button} onClick={() => buyItem(el)}>
+            buy
+          </button>
+        </div>
       </div>
     </div>
   );

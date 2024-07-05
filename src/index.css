@@ -1,4 +1,16 @@
+* {
+  /* background: #f7f7f7; */
+}
 .container {
   max-width: 1248px;
   margin: 0 auto;
+}
+.modal_container {
+  max-height: 900px;
+  overflow-y: auto;
+  width: 982px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
