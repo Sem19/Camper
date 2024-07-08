@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import styles from "./header.module.css";
 import { Badge } from "@mui/material";
 import { useSelector } from "react-redux";
-import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
 import Cart from "../cart/cart";
+import User from "../../assets/user.svg";
 
 const Header = () => {
   const listOfFavorites = useSelector((state) => state.favorite.listOfFavorites);
-
+  const cartItems = useSelector((state) => state.cart.items);
   return (
     <nav className={styles.Header}>
       <div></div>
@@ -27,13 +27,16 @@ const Header = () => {
             Favorites
             <Badge
               badgeContent={listOfFavorites.length}
-              color="primary"
+              color="error"
               className={styles.Badge}
             ></Badge>
           </Link>
         </li>
       </ul>
-      <Cart />
+      <div className={styles.cart_user}>
+        <img src={User} width={28} height={28} alt="user" />
+        <Cart cartItems={cartItems} />
+      </div>
     </nav>
   );
 };

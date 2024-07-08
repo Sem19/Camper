@@ -1,6 +1,6 @@
 .filters {
   padding: 0;
-  max-width: 360px;
+  max-width: 336px;
   width: 100%;
 }
 
@@ -29,14 +29,15 @@ hr {
 }
 
 .button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  background-color: rgba(218, 18, 18, 0.1);
 }
 .highlighted {
-  border-color: #00ff00; /* Зелений колір для бордера */
+  border-color: #e44848;
 }
 
 .highlighted:hover {
-  background-color: #ffffff; /* Відключення фону при наведенні, щоб виділявся лише бордер */
+  background-color: #ffffff;
 }
 
 .inside {
@@ -48,7 +49,11 @@ hr {
 .inside > img {
   max-width: 100%;
   max-height: 50%;
-  margin-bottom: 4px; /* Відступ між картинками */
+  margin-bottom: 4px;
+}
+
+.inside > div {
+  color: #000000;
 }
 
 .title {
@@ -58,6 +63,7 @@ hr {
   text-align: left;
   color: #101828;
 }
+
 .small_title {
   font-size: 16px;
   font-weight: 500;
@@ -65,4 +71,11 @@ hr {
   text-align: left;
   color: #475467;
   margin-bottom: 8px;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
 }

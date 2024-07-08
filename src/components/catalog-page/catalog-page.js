@@ -6,6 +6,7 @@ import { Modal } from "@mui/material";
 import Filter from "../filter/filter";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavoriteItem, removeFavoriteItem } from "../../feature/favorites/favorites";
+import { setCartItems } from "../../feature/cart/cartSlice";
 
 import ShowMoreModal from "../show-more-modal/show-more-modal";
 import CamperItem from "../camper-item/camper-item";
@@ -14,9 +15,10 @@ const initialStateModal = { isFromReview: false, selectedCampper: null };
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
-  const { location, type, equipment } = useSelector((state) => state.filter);
+  const { location, type, transmission, equipment, price } = useSelector((state) => state.filter);
   const { data = [], error, isLoading } = useGetCampperDataQuery();
   const listOfFavorites = useSelector((state) => state.favorite.listOfFavorites);
+  const cartItems = useSelector((state) => state.cart.items);
   const [visibleCount, setVisibleCount] = useState(4);
   const [selectedCampper, setSelectedCampper] = useState(initialStateModal);
   const handleLoadMore = () => setVisibleCount((prevCount) => prevCount + 4);
@@ -29,7 +31,17 @@ const CatalogPage = () => {
     if (isFavoriteItem) dispatch(removeFavoriteItem(item._id));
     else dispatch(addFavoriteItem(item));
   };
-  console.log(data);
+
+  const addItemToCart = (item) => {
+    const updatedCartItems = [...cartItems, item];
+    dispatch(setCartItems(updatedCartItems));
+  };
+
+  const removeItemFromCart = (item) => {
+    const updatedCartItems = cartItems.filter((cartItem) => cartItem._id !== item._id);
+    dispatch(setCartItems(updatedCartItems));
+  };
+
   const filteredArray = () => {
     let array = [...data];
 
@@ -39,14 +51,25 @@ const CatalogPage = () => {
     if (type) {
       array = array.filter((el) => el.form === type);
     }
+    if (transmission) {
+      array = array.filter((el) => el.transmission === transmission);
+    }
 
     if (equipment.length) {
       array = array.filter((ela) => equipment.every((el) => ela.details[el]));
     }
 
+    if (price) {
+      let a = price[0];
+      let b = price[1];
+      array = array.filter((el) => el.price > a && el.price < b);
+    }
+
     return array.slice(0, visibleCount);
   };
 
+  console.log(data);
+  console.log(price);
   return (
     <div className={styles.CatalogPage}>
       <Modal
@@ -77,6 +100,9 @@ const CatalogPage = () => {
                 el={el}
                 handleShowMore={handleShowMore}
                 handleFavoriteClick={handleFavoriteClick}
+                addItemToCart={addItemToCart}
+                removeItemFromCart={removeItemFromCart}
+                isInCart={cartItems.some((cartItem) => cartItem._id === el._id)}
                 isFavorite={isFavorite}
               />
             ))}

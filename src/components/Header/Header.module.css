@@ -1,4 +1,5 @@
 .Header {
+  padding: 0 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,4 +26,14 @@
   top: -8px;
   right: -9px;
   transform: translate(50%, -50%);
+}
+
+.cart_user {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.cart_user > img {
+  cursor: pointer;
 }

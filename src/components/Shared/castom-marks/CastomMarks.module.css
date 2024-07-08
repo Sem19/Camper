@@ -1,0 +1,23 @@
+.slider {
+  color: #e44848 !important;
+}
+
+.slider .MuiSlider-thumb {
+  border-radius: 50%;
+}
+
+.input-underline:before {
+  border-bottom: 1px solid #e44848 !important;
+}
+
+.input-underline:hover:not(.Mui-disabled):before {
+  border-bottom: 1px solid #e44848 !important;
+}
+
+.input-underline:after {
+  border-bottom: 2px solid #e44848 !important;
+}
+
+.input-focused {
+  color: #e44848 !important;
+}

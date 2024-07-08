@@ -3,9 +3,25 @@ import Heart from "../Shared/heart/heart";
 import styles from "./camper-item.module.css";
 import Rating from "../../assets/Rating.png";
 import locatin from "../../assets/location.png";
-const CamperItem = ({ el, handleShowMore, handleFavoriteClick, isFavorite, buyItem }) => {
+const CamperItem = ({
+  el,
+  handleShowMore,
+  handleFavoriteClick,
+  isFavorite,
+  addItemToCart,
+  removeItemFromCart,
+  isInCart,
+}) => {
   const isFavoriteItem = isFavorite(el);
-  // console.log(isFavoriteItem);
+
+  const handleBuyClick = () => {
+    if (isInCart) {
+      removeItemFromCart(el);
+    } else {
+      addItemToCart(el);
+    }
+  };
+
   return (
     <div className={styles.Campper} key={el._id}>
       <img width={290} height={310} alt="img" src={el.gallery[0]} />
@@ -40,8 +56,8 @@ const CamperItem = ({ el, handleShowMore, handleFavoriteClick, isFavorite, buyIt
           <button className={styles.button} onClick={() => handleShowMore(el)}>
             show more
           </button>
-          <button className={styles.button} onClick={() => buyItem(el)}>
-            buy
+          <button className={styles.button} onClick={handleBuyClick}>
+            add to cart
           </button>
         </div>
       </div>
