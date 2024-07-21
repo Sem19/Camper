@@ -45,7 +45,6 @@ const User = () => {
                   <p>Name: {formData.name}</p>
                   <p>Email: {formData.email}</p>
                   <p>Phone: {formData.phone}</p>
-                  <p>Comment: {formData.comment}</p>
                   <button className={styles.editButton} onClick={handleEdit}>
                     Edit
                   </button>
