@@ -1,7 +1,7 @@
 import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
 import { Badge, Modal } from "@mui/material";
 import styles from "./cart.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCartItems } from "../../feature/cart/cartSlice";
 import MyForm from "../Shared/my-form/my-form";
@@ -11,6 +11,12 @@ const Cart = () => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [buy, setBuy] = useState(false);
+
+  // useEffect(() => {
+  //   if (open && cartItems.length === 0) {
+  //     setOpen(false);
+  //   }
+  // }, [cartItems, open]);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -92,7 +98,6 @@ const Cart = () => {
                         </div>
                         <div className={styles.cart_buttons}>
                           <button onClick={() => removeItemFromCart(item)}>remove</button>
-                          {/* <button>buy</button> */}
                         </div>
                       </div>
                     </div>
