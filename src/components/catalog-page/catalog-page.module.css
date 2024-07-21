@@ -116,7 +116,7 @@ button:hover {
 }
 
 .CamppersContainer {
-  max-width: 888px;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   gap: 22px;

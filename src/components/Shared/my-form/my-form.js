@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { saveFormData } from "../../../feature/form/form-slice";
-import styles from "./my-form.module.css"; // Імпорт стилів
+import styles from "./my-form.module.css";
 
-const MyForm = () => {
+const MyForm = ({ handleClose }) => {
   const {
     register,
     handleSubmit,
@@ -15,6 +15,9 @@ const MyForm = () => {
   const onSubmit = (data) => {
     console.log(data);
     dispatch(saveFormData(data));
+    if (handleClose) {
+      handleClose();
+    }
   };
 
   return (
@@ -39,11 +42,11 @@ const MyForm = () => {
       </div>
       <div className={styles.formGroup}>
         <input
-          type="date"
-          id="bookingDate"
-          {...register("bookingDate", { required: "Booking date is required" })}
+          id="phone"
+          placeholder="Phone number"
+          {...register("phone", { required: "Phone number is required" })}
         />
-        {errors.bookingDate && <p className={styles.error}>{errors.bookingDate.message}</p>}
+        {errors.phone && <p className={styles.error}>{errors.phone.message}</p>}
       </div>
       <div className={styles.formGroup}>
         <textarea id="comment" placeholder="Comment" {...register("comment")} />

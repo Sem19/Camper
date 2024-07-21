@@ -10,6 +10,7 @@ import { setCartItems } from "../../feature/cart/cartSlice";
 
 import ShowMoreModal from "../show-more-modal/show-more-modal";
 import CamperItem from "../camper-item/camper-item";
+import zIndex from "@mui/material/styles/zIndex";
 
 const initialStateModal = { isFromReview: false, selectedCampper: null };
 
@@ -31,15 +32,17 @@ const CatalogPage = () => {
     if (isFavoriteItem) dispatch(removeFavoriteItem(item._id));
     else dispatch(addFavoriteItem(item));
   };
-
+  console.log(cartItems);
   const addItemToCart = (item) => {
-    const updatedCartItems = [...cartItems, item];
-    dispatch(setCartItems(updatedCartItems));
-  };
-
-  const removeItemFromCart = (item) => {
-    const updatedCartItems = cartItems.filter((cartItem) => cartItem._id !== item._id);
-    dispatch(setCartItems(updatedCartItems));
+    if (cartItems.some((el) => el._id === item._id)) {
+      dispatch(
+        setCartItems(
+          cartItems.map((el) =>
+            el._id === item._id ? { ...el, quantities: el.quantities + 1 } : el,
+          ),
+        ),
+      );
+    } else dispatch(setCartItems([...cartItems, { ...item, quantities: 1 }]));
   };
 
   const filteredArray = () => {
@@ -78,6 +81,7 @@ const CatalogPage = () => {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        style={{ zIndex: 1000 }}
       >
         <div>
           <ShowMoreModal
@@ -101,8 +105,6 @@ const CatalogPage = () => {
                 handleShowMore={handleShowMore}
                 handleFavoriteClick={handleFavoriteClick}
                 addItemToCart={addItemToCart}
-                removeItemFromCart={removeItemFromCart}
-                isInCart={cartItems.some((cartItem) => cartItem._id === el._id)}
                 isFavorite={isFavorite}
               />
             ))}

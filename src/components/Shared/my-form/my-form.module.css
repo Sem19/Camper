@@ -5,6 +5,7 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   line-height: 20px;
+  background: white;
 }
 
 .form > input {
@@ -31,7 +32,7 @@
 .formGroup input,
 .formGroup textarea {
   width: 100%;
-  padding: 18px 18px;
+  padding: 12px 18px;
   border: none;
   border-radius: 4px;
   background-color: #f7f7f7;

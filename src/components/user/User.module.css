@@ -1,0 +1,40 @@
+.modalContainer {
+  max-height: 900px;
+  /* max-width: 982px;
+  width: 100%; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+
+.insideModal {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.text {
+  width: 100%;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+}

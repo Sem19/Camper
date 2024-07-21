@@ -10,6 +10,7 @@ import campper_8 from "../../assets/campper_8.jpg";
 import campper_9 from "../../assets/campper_9.jpeg";
 import campper_10 from "../../assets/campper_10.jpg";
 import campper_11 from "../../assets/campper_11.jpg";
+import campper_12 from "../../assets/home.jpg";
 
 const HomePage = () => {
   return (
@@ -25,7 +26,7 @@ const HomePage = () => {
         excellent customer service.
       </p>
 
-      <img src={campper_7} alt="Camper 10" className={styles.div10} width={1248} height={800} />
+      {/* <img src={campper_12} alt="Camper 10" className={styles.div10} width={1360} height={800} /> */}
     </div>
   );
 };

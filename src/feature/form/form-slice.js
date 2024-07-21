@@ -9,9 +9,12 @@ export const formSlice = createSlice({
     saveFormData: (state, action) => {
       state.data = action.payload;
     },
+    clearFormData: (state) => {
+      state.data = {};
+    },
   },
 });
 
-export const { saveFormData } = formSlice.actions;
+export const { saveFormData, clearFormData } = formSlice.actions;
 
 export default formSlice.reducer;
