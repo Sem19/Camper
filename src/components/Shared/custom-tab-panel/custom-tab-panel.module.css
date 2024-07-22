@@ -48,13 +48,13 @@
   font-weight: 500;
   line-height: 24px;
   display: grid;
-  grid-template-columns: auto auto; /* Розміщення в дві колонки */
-  gap: 8px; /* Відступи між елементами */
+  grid-template-columns: auto auto;
+  gap: 8px;
 }
 .paramName {
-  font-weight: bold; /* Жирний шрифт для назв параметрів */
-  justify-self: end; /* Вирівнювання тексту назви параметра праворуч */
-  margin-right: 8px; /* Додатковий відступ між назвою та значенням */
+  font-weight: bold;
+  justify-self: end;
+  margin-right: 8px;
 }
 .comment {
   font-family: Inter;
@@ -62,6 +62,5 @@
   font-weight: 400;
   line-height: 24px;
   text-align: left;
-
   color: #475467;
 }

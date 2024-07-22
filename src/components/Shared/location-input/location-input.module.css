@@ -8,31 +8,31 @@
 
 .locationInput {
   width: 100%;
-  padding: 18px 18px 18px 40px; /* Add padding (top-right-bottom-left) and adjust left padding for icon */
+  padding: 18px 18px 18px 40px;
   border: 1px solid #ccc;
-  border-radius: 8px; /* Add border radius */
+  border-radius: 8px;
   background-color: #f7f7f7;
   outline: none;
-  color: grey; /* Set the input text color to grey */
+  color: grey;
   font-size: 16px;
-  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+  box-sizing: border-box;
 }
 
 .locationInput::placeholder {
-  color: grey; /* Set the placeholder text color to grey */
+  color: grey;
 }
 
 .locationIcon {
   position: absolute;
   left: 18px;
   top: 50%;
-  transform: translateY(-50%); /* Center the icon vertically */
-  width: 16px; /* Adjust the width and height as needed */
+  transform: translateY(-50%);
+  width: 16px;
   height: 16px;
-  pointer-events: none; /* Ensure the icon doesn't block input events */
+  pointer-events: none;
 }
 
 .focused {
-  border-color: rgb(2, 2, 2); /* Change border color when input is focused */
-  color: rgb(7, 7, 7); /* Change input text color when focused */
+  border-color: rgb(2, 2, 2);
+  color: rgb(7, 7, 7);
 }
