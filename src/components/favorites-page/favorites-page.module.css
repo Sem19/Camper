@@ -1,4 +1,7 @@
 .favoritesPage {
+  max-width: 1475px;
+  margin: 0 auto;
+  margin-top: 8px;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -40,8 +43,8 @@
 
 .heart {
   position: absolute;
-  top: 15px;
-  right: 38px;
+  top: 14px;
+  right: 18px;
   z-index: 1;
   cursor: pointer;
 }

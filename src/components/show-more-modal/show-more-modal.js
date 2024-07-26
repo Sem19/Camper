@@ -2,7 +2,7 @@ import styles from "../show-more-modal/show-more-modal.module.css";
 import CustomTabPanel from "../Shared/custom-tab-panel/custom-tab-panel";
 import Rating from "../../assets/Rating.png";
 import locatin from "../../assets/location.png";
-import ImageGallery from "../Shared/carousel/ImageGallery";
+import ModalCarousel from "../Shared/carousel/ModalCarousel";
 
 const ShowMoreModal = ({ selectedCampper, isFromReview = false }) => {
   return (
@@ -18,7 +18,7 @@ const ShowMoreModal = ({ selectedCampper, isFromReview = false }) => {
           </div>
           <h4 className={styles.title}>${selectedCampper?.price}</h4>
         </div>
-        <ImageGallery images={selectedCampper.gallery} />
+        <ModalCarousel images={selectedCampper.gallery} />
         <p className={styles.description}>{selectedCampper?.description}</p>
         <CustomTabPanel selectedCampper={selectedCampper} isFromReview={isFromReview} />
       </div>
