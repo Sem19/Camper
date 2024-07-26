@@ -8,6 +8,7 @@
 .favoriteItem > img {
   border-radius: 8px;
 }
+
 .favoritesContainer {
   width: 100%;
   display: flex;
@@ -30,11 +31,13 @@
   text-overflow: ellipsis;
   position: relative;
 }
+
 .price {
   font-size: 24px;
   font-weight: 600;
   line-height: 30px;
 }
+
 .heart {
   position: absolute;
   top: 15px;
@@ -42,6 +45,7 @@
   z-index: 1;
   cursor: pointer;
 }
+
 @media (min-width: 768px) {
   .favoriteItem {
     width: calc(33.33% - 8px);
@@ -68,6 +72,7 @@ button {
     color 0.3s,
     border-color 0.3s;
 }
+
 button:hover {
   background-color: #e44848;
   border-color: #070707;

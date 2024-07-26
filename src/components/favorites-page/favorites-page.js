@@ -28,7 +28,7 @@ const FavoritesPage = () => {
           {listOfFavorites.map((item) => (
             <div key={item._id} className={styles.favoriteItem}>
               <h2>{item.title}</h2>
-              <img width={290} height={310} alt="img" src={item?.gallery[0]} />
+              <img width={360} height={260} alt="img" src={item?.gallery[0]} />
               <p className={styles.price}>Price: ${item.price}</p>
               <button onClick={() => setSelectedCampper(item)}>show more</button>
               <div className={styles.heart}>
