@@ -1,6 +1,5 @@
-// src/components/LocationInput.js
-import styles from "./location-input.module.css"; // Import the CSS Module
-import locationIcon from "../../../assets/location_grey.png"; // Import the location icon
+import styles from "./location-input.module.css";
+import locationIcon from "../../../assets/location_grey.png";
 import locationIconDark from "../../../assets/location.png";
 import { useState } from "react";
 

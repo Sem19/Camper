@@ -20,7 +20,7 @@ const FavoritesPage = () => {
 
   return (
     <div className={styles.favoritesPage}>
-      <div className={styles.favoritesHeader}>{/* <p>Favorites Campper</p> */}</div>
+      <div className={styles.favoritesHeader}></div>
       {listOfFavorites.length === 0 ? (
         <p>No favorite items</p>
       ) : (

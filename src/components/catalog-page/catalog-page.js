@@ -10,7 +10,6 @@ import { setCartItems } from "../../feature/cart/cartSlice";
 
 import ShowMoreModal from "../show-more-modal/show-more-modal";
 import CamperItem from "../camper-item/camper-item";
-import zIndex from "@mui/material/styles/zIndex";
 
 const initialStateModal = { isFromReview: false, selectedCampper: null };
 
@@ -32,7 +31,6 @@ const CatalogPage = () => {
     if (isFavoriteItem) dispatch(removeFavoriteItem(item._id));
     else dispatch(addFavoriteItem(item));
   };
-  console.log(cartItems);
   const addItemToCart = (item) => {
     if (cartItems.some((el) => el._id === item._id)) {
       dispatch(
@@ -71,8 +69,6 @@ const CatalogPage = () => {
     return array.slice(0, visibleCount);
   };
 
-  console.log(data);
-  console.log(price);
   return (
     <div className={styles.CatalogPage}>
       <Modal

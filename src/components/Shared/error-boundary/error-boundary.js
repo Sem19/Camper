@@ -11,7 +11,6 @@ class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    // Ви можете зберігати інформацію про помилку, наприклад, у логах
     console.error("ErrorBoundary caught an error", error, errorInfo);
   }
 

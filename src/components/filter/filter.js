@@ -36,7 +36,7 @@ const images = [
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const { type, transmission, equipment, price } = useSelector((state) => state.filter);
+  const { type, transmission, equipment } = useSelector((state) => state.filter);
 
   const onChangeEquipments = (value) => {
     if (equipment.includes(value)) {

@@ -1,4 +1,3 @@
-// import styles from "../catalog-page/catalog-page.module.css";
 import styles from "../show-more-modal/show-more-modal.module.css";
 import CustomTabPanel from "../Shared/custom-tab-panel/custom-tab-panel";
 import Rating from "../../assets/Rating.png";
@@ -19,11 +18,6 @@ const ShowMoreModal = ({ selectedCampper, isFromReview = false }) => {
           </div>
           <h4 className={styles.title}>${selectedCampper?.price}</h4>
         </div>
-        {/* <div className={styles.modalImages}>
-          <img width={290} height={310} alt="img" src={selectedCampper?.gallery[0]} />
-          <img width={290} height={310} alt="img" src={selectedCampper?.gallery[1]} />
-          <img width={290} height={310} alt="img" src={selectedCampper?.gallery[2]} />
-        </div> */}
         <ImageGallery images={selectedCampper.gallery} />
         <p className={styles.description}>{selectedCampper?.description}</p>
         <CustomTabPanel selectedCampper={selectedCampper} isFromReview={isFromReview} />

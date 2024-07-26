@@ -1,7 +1,7 @@
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css"; // Import lightbox styles
+import "react-image-lightbox/style.css";
 import { useState } from "react";
 import styles from "./ImageGallery.module.css";
 

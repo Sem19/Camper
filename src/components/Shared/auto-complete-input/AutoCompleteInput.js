@@ -36,13 +36,13 @@ const AutoCompleteInput = () => {
         sx={{
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
-              borderColor: "gray", // Початковий колір рамки
+              borderColor: "gray",
             },
             "&:hover fieldset": {
-              borderColor: "gray", // Колір рамки при наведенні
+              borderColor: "gray",
             },
             "&.Mui-focused fieldset": {
-              borderColor: "#e44848", // Колір рамки при фокусі
+              borderColor: "#e44848",
             },
           },
         }}
