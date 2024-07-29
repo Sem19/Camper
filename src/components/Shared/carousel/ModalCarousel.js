@@ -1,7 +1,7 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 import { useState } from "react";
 import styles from "./ModalCarousel.module.css";
 
@@ -25,18 +25,14 @@ const ModalCarousel = ({ images }) => {
       </Carousel>
 
       {isOpen && (
-        <div className={styles.lightbox_container}>
-          <Lightbox
-            mainSrc={images[photoIndex]}
-            nextSrc={images[(photoIndex + 1) % images.length]}
-            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-            onCloseRequest={() => setIsOpen(false)}
-            onMovePrevRequest={() =>
-              setPhotoIndex((photoIndex + images.length - 1) % images.length)
-            }
-            onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
-          />
-        </div>
+        <Lightbox
+          slides={images.map((src) => ({ src }))}
+          open={isOpen}
+          index={photoIndex}
+          close={() => setIsOpen(false)}
+          onPrev={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
+          onNext={() => setPhotoIndex((photoIndex + 1) % images.length)}
+        />
       )}
     </div>
   );
