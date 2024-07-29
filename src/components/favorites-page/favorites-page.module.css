@@ -35,6 +35,10 @@
   position: relative;
 }
 
+.muimodal {
+  overflow-y: auto;
+}
+
 .price {
   font-size: 24px;
   font-weight: 600;

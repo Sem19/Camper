@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./favorites-page.module.css";
-import { Modal } from "@mui/material";
+import { Hidden, Modal } from "@mui/material";
 import { useState } from "react";
 import ShowMoreModal from "../show-more-modal/show-more-modal";
 import Heart from "../Shared/heart/heart";
@@ -44,6 +44,7 @@ const FavoritesPage = () => {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        style={{ zIndex: 1000 }}
       >
         <div>
           <ShowMoreModal selectedCampper={selectedCampper} />
