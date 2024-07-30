@@ -20,6 +20,7 @@ function App() {
                 <HomePage />
               </ErrorBoundary>
             }
+            key="home"
           />
           <Route
             path="/catalog"
@@ -28,6 +29,7 @@ function App() {
                 <CatalogPage />
               </ErrorBoundary>
             }
+            key="catalog"
           />
           <Route
             path="/favorites"
@@ -36,6 +38,7 @@ function App() {
                 <FavoritesPage />
               </ErrorBoundary>
             }
+            key="favorites"
           />
         </Routes>
       </HashRouter>
