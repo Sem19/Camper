@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.bc40f641.css",
-    "main.js": "/static/js/main.fb715352.js",
-    "static/media/campper_video.mp4": "/static/media/campper_video.e55858787e858fc7871a.mp4",
-    "static/media/user.svg": "/static/media/user.629b6cbc1f44bf01bfe96f98fb7c57b4.svg",
-    "static/media/heart-icon.svg": "/static/media/heart-icon.5fdd9738b1cf2b2a6fdc505c887857b1.svg",
-    "static/media/location_black.svg": "/static/media/location_black.0cc160ef9402cb9534799f748f8e588a.svg",
-    "index.html": "/index.html",
-    "static/media/avatar.svg": "/static/media/avatar.2e1427da6620083e4d52e5efcea41016.svg",
-    "main.bc40f641.css.map": "/static/css/main.bc40f641.css.map",
-    "main.fb715352.js.map": "/static/js/main.fb715352.js.map"
+    "main.css": "/Camper/static/css/main.bc40f641.css",
+    "main.js": "/Camper/static/js/main.20575449.js",
+    "static/media/campper_video.mp4": "/Camper/static/media/campper_video.e55858787e858fc7871a.mp4",
+    "static/media/user.svg": "/Camper/static/media/user.629b6cbc1f44bf01bfe96f98fb7c57b4.svg",
+    "static/media/heart-icon.svg": "/Camper/static/media/heart-icon.5fdd9738b1cf2b2a6fdc505c887857b1.svg",
+    "static/media/location_black.svg": "/Camper/static/media/location_black.0cc160ef9402cb9534799f748f8e588a.svg",
+    "index.html": "/Camper/index.html",
+    "static/media/avatar.svg": "/Camper/static/media/avatar.2e1427da6620083e4d52e5efcea41016.svg",
+    "main.bc40f641.css.map": "/Camper/static/css/main.bc40f641.css.map",
+    "main.20575449.js.map": "/Camper/static/js/main.20575449.js.map"
   },
   "entrypoints": [
     "static/css/main.bc40f641.css",
-    "static/js/main.fb715352.js"
+    "static/js/main.20575449.js"
   ]
 }
