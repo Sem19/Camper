@@ -1,5 +1,4 @@
-import "./reset.css";
-import "./index.css";
+import React from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/header/header";
 import CatalogPage from "./components/catalog-page/catalog-page";
