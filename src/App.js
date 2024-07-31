@@ -4,7 +4,6 @@ import CatalogPage from "./components/catalog-page/catalog-page";
 import ErrorBoundary from "./components/Shared/error-boundary/error-boundary";
 import FavoritesPage from "./components/favorites-page/favorites-page";
 import HomePage from "./components/home-page/home-page";
-import "./reset.css";
 
 function App() {
   return (
