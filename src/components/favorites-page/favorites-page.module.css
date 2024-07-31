@@ -47,7 +47,7 @@
 
 .heart {
   position: absolute;
-  top: 14px;
+  top: 32px;
   right: 18px;
   z-index: 1;
   cursor: pointer;
