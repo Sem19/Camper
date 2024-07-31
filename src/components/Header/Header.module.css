@@ -1,5 +1,5 @@
 .Header {
-  padding: 0 30px;
+  padding: 16px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,6 +9,7 @@
   z-index: 1000;
   background: white;
   transition: background 0.3s ease;
+  font-family: "Inter", sans-serif;
 }
 .Header:hover {
   background: #b2bdee;

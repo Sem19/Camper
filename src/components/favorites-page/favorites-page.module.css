@@ -6,6 +6,7 @@
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
+  font-family: "Inter", sans-serif;
 }
 
 .favoriteItem > img {
@@ -33,6 +34,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .muimodal {
@@ -47,7 +51,7 @@
 
 .heart {
   position: absolute;
-  top: 32px;
+  top: 18px;
   right: 18px;
   z-index: 1;
   cursor: pointer;
@@ -78,6 +82,8 @@ button {
     background-color 0.3s,
     color 0.3s,
     border-color 0.3s;
+  max-width: 110px;
+  margin: 0 auto;
 }
 
 button:hover {

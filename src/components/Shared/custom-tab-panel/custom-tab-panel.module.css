@@ -26,6 +26,7 @@
 .reviewer_field {
   display: flex;
   position: relative;
+  align-items: center;
 }
 .reviewer_rating {
   display: flex;
@@ -36,7 +37,7 @@
 .letter {
   position: absolute;
   left: 23px;
-  top: 14px;
+  top: 18px;
   color: cornflowerblue;
   font-size: 24px;
   font-weight: 600;

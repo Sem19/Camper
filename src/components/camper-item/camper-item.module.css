@@ -5,6 +5,7 @@
   border: 1px solid #d8d9dc;
   border-radius: 6px;
   overflow: hidden;
+  font-family: "Inter", sans-serif;
 }
 
 .Campper > img {
@@ -38,6 +39,7 @@
   padding-right: 6px;
   align-items: center;
   font-size: 23px;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   line-height: 30px;
   color: #101828;

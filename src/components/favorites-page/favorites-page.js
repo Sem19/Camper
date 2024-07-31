@@ -40,6 +40,7 @@ const FavoritesPage = () => {
       )}
 
       <Modal
+        className={styles.muimodal}
         open={!!selectedCampper}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
