@@ -60,49 +60,47 @@ export default function RangeSlider() {
         getAriaValueText={valuetext}
         className={styles.slider}
       />
-      <Grid container spacing={2} alignItems="center">
-        <Grid item xs={6}>
-          <Input
-            value={inputMin}
-            margin="dense"
-            onChange={(e) => handleInputChange(e, "min")}
-            onBlur={() => handleBlur("min")}
-            classes={{
-              root: styles.inputFocused,
-              underline: styles.inputUnderline,
-            }}
-            inputProps={{
-              step: 500,
-              min: MIN,
-              max: MAX,
-              type: "number",
-              "aria-labelledby": "input-slider",
-            }}
-          />
-        </Grid>
-        <Grid item xs={6}>
-          <Input
-            value={inputMax}
-            margin="dense"
-            onChange={(e) => handleInputChange(e, "max")}
-            onBlur={() => handleBlur("max")}
-            classes={{
-              root: styles.inputFocused,
-              underline: styles.inputUnderline,
-            }}
-            inputProps={{
-              step: 2500,
-              min: MIN,
-              max: MAX,
-              type: "number",
-              "aria-labelledby": "input-slider",
-            }}
-          />
-        </Grid>
-      </Grid>
-      <button onClick={handleOkClick} style={{ float: "left", margin: 24 }}>
-        OK
-      </button>
+      <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
+        <Input
+          value={inputMin}
+          margin="dense"
+          onChange={(e) => handleInputChange(e, "min")}
+          onBlur={() => handleBlur("min")}
+          classes={{
+            root: styles.inputFocused,
+            underline: styles.inputUnderline,
+          }}
+          inputProps={{
+            step: 500,
+            min: MIN,
+            max: MAX,
+            type: "number",
+            "aria-labelledby": "input-slider",
+          }}
+          sx={{ mr: 2 }}
+        />
+        <Input
+          value={inputMax}
+          margin="dense"
+          onChange={(e) => handleInputChange(e, "max")}
+          onBlur={() => handleBlur("max")}
+          classes={{
+            root: styles.inputFocused,
+            underline: styles.inputUnderline,
+          }}
+          inputProps={{
+            step: 2500,
+            min: MIN,
+            max: MAX,
+            type: "number",
+            "aria-labelledby": "input-slider",
+          }}
+          sx={{ mr: 2 }}
+        />
+        <button onClick={handleOkClick} style={{ marginLeft: "auto" }}>
+          OK
+        </button>
+      </Box>
     </Box>
   );
 }

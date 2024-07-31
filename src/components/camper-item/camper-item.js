@@ -15,6 +15,7 @@ const CamperItem = ({ el, handleShowMore, handleFavoriteClick, isFavorite, addIt
           <div className={styles.PriceBlock}>
             <div>${el.price}</div>
             <Heart
+              styles={{ cursor: "pointer" }}
               isFavorite={isFavoriteItem}
               onClick={() => handleFavoriteClick(el, isFavoriteItem)}
             />

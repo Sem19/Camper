@@ -1,11 +1,35 @@
-.paragraph {
+.HomePage {
+  position: relative;
+  height: 100vh;
+}
+
+.textContainer {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  max-width: 80%;
+  box-sizing: border-box;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.textContainer p {
   font-family: Inter;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  text-align: left;
+  margin: 0;
 }
 
-.paragraph > span {
+.textContainer p span {
   font-size: 18px;
+  font-weight: bold;
+}
+
+.textContainer p {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
