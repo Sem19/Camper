@@ -1,5 +1,5 @@
 import { Route, Routes, HashRouter } from "react-router-dom";
-import Header from "./components/header/header";
+import Header from "./components/Header/Header";
 import CatalogPage from "./components/catalog-page/catalog-page";
 import ErrorBoundary from "./components/Shared/error-boundary/error-boundary";
 import FavoritesPage from "./components/favorites-page/favorites-page";
@@ -8,7 +8,7 @@ import HomePage from "./components/home-page/home-page";
 function App() {
   return (
     <div>
-      <HashRouter basename="/catalog">
+      <HashRouter basename="/">
         <Header />
         <Routes>
           <Route
