@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/catalog/static/css/main.c1bfdde9.css",
-    "main.js": "/catalog/static/js/main.28b940c1.js",
+    "main.css": "/catalog/static/css/main.acd7331a.css",
+    "main.js": "/catalog/static/js/main.2d324360.js",
     "static/media/campper_video2.mp4": "/catalog/static/media/campper_video2.07d860f5d590b48c4d6f.mp4",
     "static/media/user.svg": "/catalog/static/media/user.629b6cbc1f44bf01bfe96f98fb7c57b4.svg",
     "static/media/heart-icon.svg": "/catalog/static/media/heart-icon.5fdd9738b1cf2b2a6fdc505c887857b1.svg",
     "static/media/location_black.svg": "/catalog/static/media/location_black.0cc160ef9402cb9534799f748f8e588a.svg",
     "index.html": "/catalog/index.html",
     "static/media/avatar.svg": "/catalog/static/media/avatar.2e1427da6620083e4d52e5efcea41016.svg",
-    "main.c1bfdde9.css.map": "/catalog/static/css/main.c1bfdde9.css.map",
-    "main.28b940c1.js.map": "/catalog/static/js/main.28b940c1.js.map"
+    "main.acd7331a.css.map": "/catalog/static/css/main.acd7331a.css.map",
+    "main.2d324360.js.map": "/catalog/static/js/main.2d324360.js.map"
   },
   "entrypoints": [
-    "static/css/main.c1bfdde9.css",
-    "static/js/main.28b940c1.js"
+    "static/css/main.acd7331a.css",
+    "static/js/main.2d324360.js"
   ]
 }
