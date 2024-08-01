@@ -101,9 +101,6 @@ section {
   display: block;
 }
 body {
-  line-height: 1;
-  font-family: "Inter", sans-serif;
-
   margin: 0;
   padding: 0;
 }

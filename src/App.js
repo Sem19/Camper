@@ -1,4 +1,4 @@
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes, HashRouter } from "react-router-dom";
 import Header from "./components/header/header";
 import CatalogPage from "./components/catalog-page/catalog-page";
 import ErrorBoundary from "./components/Shared/error-boundary/error-boundary";
@@ -7,8 +7,8 @@ import HomePage from "./components/home-page/home-page";
 
 function App() {
   return (
-    <Router>
-      <div>
+    <div>
+      <HashRouter basename="/catalog">
         <Header />
         <Routes>
           <Route
@@ -36,8 +36,8 @@ function App() {
             }
           />
         </Routes>
-      </div>
-    </Router>
+      </HashRouter>
+    </div>
   );
 }
 
